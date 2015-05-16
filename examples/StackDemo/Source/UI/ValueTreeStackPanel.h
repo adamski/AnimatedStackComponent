@@ -11,9 +11,9 @@
 #ifndef __VALUETREESTACKPANEL_H_3FD24CC7__
 #define __VALUETREESTACKPANEL_H_3FD24CC7__
 
-#include "StackComponent.h"
+//#include "StackComponent.h"
 #include "ValueTreeListBox.h"
-#include "AnimatedStackComponent.h"
+//#include "AnimatedStackComponent.h"
 
 
 class ValueTreeStackPanel	:	public Component, public ValueTreeListBox::Listener

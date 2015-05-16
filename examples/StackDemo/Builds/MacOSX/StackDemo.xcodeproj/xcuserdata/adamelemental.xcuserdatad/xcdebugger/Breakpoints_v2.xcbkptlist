@@ -276,29 +276,76 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../modules/adamski_animated_stack/src/StackAnimator.h"
-            timestampString = "453338505.08398"
+            timestampString = "453503914.823864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16">
+            startingLineNumber = "15"
+            endingLineNumber = "15">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StackAnimator::~StackAnimator()"
+                  moduleName = "StackDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adamelemental/dev/juce_modules/adamski/AnimatedStack/modules/adamski_animated_stack/src/StackAnimator.h"
+                  timestampString = "453503623.851295"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StackAnimator::~StackAnimator()"
+                  moduleName = "StackDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adamelemental/dev/juce_modules/adamski/AnimatedStack/modules/adamski_animated_stack/src/StackAnimator.h"
+                  timestampString = "453503623.879175"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StackAnimator::~StackAnimator()"
+                  moduleName = "StackDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adamelemental/dev/juce_modules/adamski/AnimatedStack/modules/adamski_animated_stack/src/StackAnimator.h"
+                  timestampString = "453503623.879506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../modules/adamski_animated_stack/src/StackAnimator.h"
-            timestampString = "453370690.113412"
+            timestampString = "453503914.823864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29">
+            startingLineNumber = "28"
+            endingLineNumber = "28">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

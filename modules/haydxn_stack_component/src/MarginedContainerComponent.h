@@ -11,8 +11,6 @@
 #ifndef __MARGINEDCONTAINERCOMPONENT_H_B4042581__
 #define __MARGINEDCONTAINERCOMPONENT_H_B4042581__
 
-#include "JuceHeader.h"
-
 /** A fairly specialised type of Component. This has a main body component, and
 	optionally left and right margin components. The margin sizes can be set manually,
 	and the body component always fills what space is left. It's useful for header

@@ -10,8 +10,6 @@
 
 #include "SlideAnimator.h"
 
-using namespace juce;
-
 SlideAnimator::SlideAnimator ()
     :   StackAnimator(),
         slideDuration (150),

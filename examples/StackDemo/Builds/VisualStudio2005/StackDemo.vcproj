@@ -142,8 +142,6 @@
           <File RelativePath="..\..\Source\UI\ValueTreeListBox.h"/>
           <File RelativePath="..\..\Source\UI\ValueTreeStackPanel.cpp"/>
           <File RelativePath="..\..\Source\UI\ValueTreeStackPanel.h"/>
-          <File RelativePath="..\..\Source\UI\MarginedContainerComponent.cpp"/>
-          <File RelativePath="..\..\Source\UI\MarginedContainerComponent.h"/>
         </Filter>
         <File RelativePath="..\..\Source\MainWindow.cpp"/>
         <File RelativePath="..\..\Source\MainWindow.h"/>
@@ -223,6 +221,17 @@
             </FileConfiguration>
           </File>
           <File RelativePath="..\..\..\..\modules\haydxn_stack_component\src\HeaderLabel.h"/>
+          <File RelativePath="..\..\..\..\modules\haydxn_stack_component\src\MarginedContainerComponent.cpp">
+            <FileConfiguration Name="Debug|Win32"
+                               ExcludedFromBuild="true">
+              <Tool Name="VCCLCompilerTool"/>
+            </FileConfiguration>
+            <FileConfiguration Name="Release|Win32"
+                               ExcludedFromBuild="true">
+              <Tool Name="VCCLCompilerTool"/>
+            </FileConfiguration>
+          </File>
+          <File RelativePath="..\..\..\..\modules\haydxn_stack_component\src\MarginedContainerComponent.h"/>
           <File RelativePath="..\..\..\..\modules\haydxn_stack_component\src\SlidingStackComponent.cpp">
             <FileConfiguration Name="Debug|Win32"
                                ExcludedFromBuild="true">

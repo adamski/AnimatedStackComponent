@@ -10,10 +10,7 @@
 
 #include "HeaderLabel.h"
 
-using namespace juce;
-
 const int HeaderLabel::textColourId = 0x12019;
-
 
 HeaderLabel::HeaderLabel ()
 :	font (16,Font::bold),

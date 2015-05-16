@@ -11,10 +11,8 @@
 #ifndef __StackHeaderComponent_H_8C491CB2__
 #define __StackHeaderComponent_H_8C491CB2__
 
-#include "StackComponent.h"
 #include "MarginedContainerComponent.h"
 #include "HeaderLabel.h"
-
 
 class StackHeaderComponent	:	public StackComponent::Controller,
 									public juce::Button::Listener

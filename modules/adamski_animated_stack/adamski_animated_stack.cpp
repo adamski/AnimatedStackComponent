@@ -13,6 +13,8 @@
 
 #include "adamski_animated_stack.h"
 
+using namespace juce;
+
 #include "src/AnimatedStackComponent.cpp"
 #include "src/StackAnimator.cpp"
 #include "src/SlideAnimator.cpp"

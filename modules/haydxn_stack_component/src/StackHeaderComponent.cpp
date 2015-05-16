@@ -10,8 +10,6 @@
 
 #include "StackHeaderComponent.h"
 
-using namespace juce;
-
 const Identifier StackHeaderComponent::contentTitlePropertyId ("BasicStackHeader_Title");
 const char* StackHeaderComponent::titleLabelId = "Title";
 

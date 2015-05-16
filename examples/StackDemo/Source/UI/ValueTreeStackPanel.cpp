@@ -10,13 +10,6 @@
 
 #include "ValueTreeStackPanel.h"
 #include "ValueTreeListBox.h"
-#include "StackHeaderComponent.h"
-#include "StackNavigationList.h"
-#include "AnimatedStackComponent.h"
-#include "SlideAnimator.h"
-#include "ShutterAnimator.h"
-
-//using namespace haydxn;
 
 class ValueTreeListProp	:	public PropertyComponent
 {
@@ -97,7 +90,7 @@ void ValueTreeStackPanel::pop ()
 void ValueTreeStackPanel::valueTreeListBoxItemDoubleClicked (ValueTreeListBox* source, const MouseEvent& e, int index, const ValueTree& itemNode)
 {
     ValueTreeStackPanel* nextPanel = new ValueTreeStackPanel (itemNode);
-    if (index == 2)
+    if (index == 1)
     {
         Rectangle<int> rowPosition = source->getListBox().getRowPosition(index, false);
         // SlideAnimator::Ptr slideAnimator = new SlideAnimator(350, 0.5, 1.0);

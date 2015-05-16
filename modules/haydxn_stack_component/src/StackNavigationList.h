@@ -11,7 +11,6 @@
 #ifndef __STACKNAVIGATIONLIST_H_D59A3816__
 #define __STACKNAVIGATIONLIST_H_D59A3816__
 
-class StackComponent;
 
 class StackNavigationList	:	public StackComponent::Controller,
 								public juce::ListBoxModel

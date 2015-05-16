@@ -8,7 +8,15 @@
 #include <modules/juce_graphics/juce_graphics.h>
 #include <modules/juce_gui_basics/juce_gui_basics.h>
 
+//namespace hx
+//{
 
+class StackComponent;
+class SlidingStackComponent;
+class StackHeaderComponent;
+class StackNavigationList;
+class HeaderLabel;
+class MarginedContainerComponent;
 
 #include "src/StackComponent.h"
 #include "src/SlidingStackComponent.h"
@@ -17,5 +25,6 @@
 #include "src/HeaderLabel.h"
 #include "src/MarginedContainerComponent.h"
 
+//}
 
 #endif   // HAYDXN_STACK_COMPONENT_H_INCLUDED

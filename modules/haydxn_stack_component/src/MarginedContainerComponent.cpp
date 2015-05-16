@@ -16,8 +16,6 @@ namespace MarginedContainerHelpers
 	static const char* rightMarginMarker = "RMarginMarker";
 };
 
-using namespace juce;
-
 MarginedContainerComponent::MarginedContainerComponent ()
 {
 	setInterceptsMouseClicks (false,true);

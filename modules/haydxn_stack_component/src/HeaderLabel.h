@@ -18,7 +18,7 @@
 	bounds. It's easier to understand if you see it do its thing!
 */
 class HeaderLabel	:	public juce::Component,
-						public Value::Listener
+						public juce::Value::Listener
 {
 public:
 
@@ -31,8 +31,8 @@ public:
     void setPageReferenceComponent (juce::Component* page);
     juce::Component* getPageReferenceComponent () const;
 
-	void setFont (const Font& font);
-	Font getFont () const;
+	void setFont (const juce::Font& font);
+	juce::Font getFont () const;
 
 	void setBorderSize (const juce::BorderSize<int> border);
 	const juce::BorderSize<int>& getBorderSize () const;

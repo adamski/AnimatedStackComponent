@@ -9,11 +9,6 @@
 */
 
 #include "MainWindow.h"
-#include "UI/StackHeaderComponent.h"
-#include "UI/StackNavigationList.h"
-#include "UI/AnimatedStackComponent.h"
-#include "UI/StackAnimator.h"
-#include "UI/SlideAnimator.h"
 #include "UI/ValueTreeStackPanel.h"
 
 //==============================================================================

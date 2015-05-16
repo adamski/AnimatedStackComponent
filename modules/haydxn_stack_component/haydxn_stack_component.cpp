@@ -13,10 +13,14 @@
 
 #include "haydxn_stack_component.h"
 
+// namespace hx 
+// {
+using namespace juce;
+
 #include "src/StackComponent.cpp"
 #include "src/SlidingStackComponent.cpp"
 #include "src/StackHeaderComponent.cpp"
 #include "src/StackNavigationList.cpp"
 #include "src/HeaderLabel.cpp"
 #include "src/MarginedContainerComponent.cpp"
-
+// }

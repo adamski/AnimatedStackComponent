@@ -10,8 +10,6 @@
 
 #include "SlidingStackComponent.h"
 
-using namespace juce;
-
 SlidingStackComponent::SlidingStackComponent ()
 :	slideDuration (150),
 	startSpeed (1.0),

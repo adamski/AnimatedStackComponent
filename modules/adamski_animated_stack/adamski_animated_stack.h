@@ -7,6 +7,7 @@
 #include <modules/juce_events/juce_events.h>
 #include <modules/juce_graphics/juce_graphics.h>
 #include <modules/juce_gui_basics/juce_gui_basics.h>
+#include <modules/haydxn_stack_component/haydxn_stack_component.h>
 
 
 #include "src/AnimatedStackComponent.h"

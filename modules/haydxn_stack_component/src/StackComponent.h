@@ -13,8 +13,6 @@
 #ifndef __STACKCOMPONENT_H_695847AD__
 #define __STACKCOMPONENT_H_695847AD__
 
-#include "JuceHeader.h"
-
 /**
 	This is a special UI container component, similar to a TabbedComponent.
 

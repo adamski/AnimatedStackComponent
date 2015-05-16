@@ -208,9 +208,6 @@
     <ClCompile Include="..\..\Source\UI\ValueTreeStackPanel.cpp">
       <Filter>StackDemo\Source\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\MarginedContainerComponent.cpp">
-      <Filter>StackDemo\Source\UI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\MainWindow.cpp">
       <Filter>StackDemo\Source</Filter>
     </ClCompile>
@@ -230,6 +227,9 @@
       <Filter>Juce Modules\adamski_animated_stack\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\HeaderLabel.cpp">
+      <Filter>Juce Modules\haydxn_stack_component\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\MarginedContainerComponent.cpp">
       <Filter>Juce Modules\haydxn_stack_component\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\SlidingStackComponent.cpp">
@@ -1074,9 +1074,6 @@
     <ClInclude Include="..\..\Source\UI\ValueTreeStackPanel.h">
       <Filter>StackDemo\Source\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\MarginedContainerComponent.h">
-      <Filter>StackDemo\Source\UI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\MainWindow.h">
       <Filter>StackDemo\Source</Filter>
     </ClInclude>
@@ -1096,6 +1093,9 @@
       <Filter>Juce Modules\adamski_animated_stack</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\HeaderLabel.h">
+      <Filter>Juce Modules\haydxn_stack_component\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\MarginedContainerComponent.h">
       <Filter>Juce Modules\haydxn_stack_component\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\SlidingStackComponent.h">

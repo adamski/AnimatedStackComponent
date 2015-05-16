@@ -10,8 +10,6 @@
 
 #include "StackNavigationList.h"
 
-using namespace juce;
-
 const Identifier StackNavigationList::titlePropertyId ("StackNavigationList_Title");
 
 StackNavigationList::StackNavigationList ()

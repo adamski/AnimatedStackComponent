@@ -8,12 +8,7 @@
   ==============================================================================
 */
 
-#ifndef SHUTTERANIMATOR_H_INCLUDED
-#define SHUTTERANIMATOR_H_INCLUDED
-
 #include "ShutterAnimator.h"
-
-using namespace juce;
 
 ShutterAnimator::ShutterAnimator (Rectangle<int> focusArea)
     :   StackAnimator(),
@@ -179,7 +174,6 @@ void ShutterAnimator::setDuration (int durationMs, double newStartSpeed, double 
     endSpeed = newEndSpeed;
 }
 
-private:
 
 /**
  * Check if we've finished an animation and remove the proxy image components 
@@ -231,4 +225,6 @@ Rectangle<int> ShutterAnimator::getCurrentBounds() const
     int h = stackComponent->getHeight();
     return Rectangle<int> (0, 0, w, h);
 }
+
+
 

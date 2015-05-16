@@ -11,8 +11,6 @@
 
 #include "StackComponent.h"
 
-using namespace juce;
-
 StackComponent::StackComponent ()
 :	stackFocusIndex (0),
     popAutoFocusOrder (autoFocusBeforeContentChange)

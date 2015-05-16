@@ -11,7 +11,6 @@
 #ifndef __SLIDINGSTACKCOMPONENT_H_3EB614FF__
 #define __SLIDINGSTACKCOMPONENT_H_3EB614FF__
 
-class StackComponent;
 
 class SlidingStackComponent	:	public StackComponent
 {

@@ -114,10 +114,6 @@
               file="Source\UI\ValueTreeStackPanel.cpp"/>
         <FILE id="nZr29" name="ValueTreeStackPanel.h" compile="0" resource="0"
               file="Source\UI\ValueTreeStackPanel.h"/>
-        <FILE id="fpjC9E" name="MarginedContainerComponent.cpp" compile="1"
-              resource="0" file="Source\UI\MarginedContainerComponent.cpp"/>
-        <FILE id="BAtGzG" name="MarginedContainerComponent.h" compile="0" resource="0"
-              file="Source\UI\MarginedContainerComponent.h"/>
       </GROUP>
       <FILE id="hlhv81" name="MainWindow.cpp" compile="1" resource="0" file="Source\MainWindow.cpp"/>
       <FILE id="yYmP0S" name="MainWindow.h" compile="0" resource="0" file="Source\MainWindow.h"/>

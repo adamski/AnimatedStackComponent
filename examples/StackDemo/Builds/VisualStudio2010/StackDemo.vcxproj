@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\UI\ValueTreeListBox.cpp"/>
     <ClCompile Include="..\..\Source\UI\ValueTreeStackPanel.cpp"/>
-    <ClCompile Include="..\..\Source\UI\MarginedContainerComponent.cpp"/>
     <ClCompile Include="..\..\Source\MainWindow.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
     <ClCompile Include="..\..\..\..\modules\adamski_animated_stack\src\AnimatedStackComponent.cpp">
@@ -141,6 +140,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\HeaderLabel.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\MarginedContainerComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\SlidingStackComponent.cpp">
@@ -917,7 +919,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\UI\ValueTreeListBox.h"/>
     <ClInclude Include="..\..\Source\UI\ValueTreeStackPanel.h"/>
-    <ClInclude Include="..\..\Source\UI\MarginedContainerComponent.h"/>
     <ClInclude Include="..\..\Source\MainWindow.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\AnimatedStackComponent.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\ShutterAnimator.h"/>
@@ -925,6 +926,7 @@
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\StackAnimator.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\adamski_animated_stack.h"/>
     <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\HeaderLabel.h"/>
+    <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\MarginedContainerComponent.h"/>
     <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\SlidingStackComponent.h"/>
     <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\StackComponent.h"/>
     <ClInclude Include="..\..\..\..\modules\haydxn_stack_component\src\StackHeaderComponent.h"/>
