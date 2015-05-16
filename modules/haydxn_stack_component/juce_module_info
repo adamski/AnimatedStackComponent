@@ -1,0 +1,20 @@
+{
+  "id":             "haydxn_stack_component",
+  "name":           "Stack Component",
+  "version":        "1.0.2",
+  "description":    "Flexible UI container component, similar to a TabbedComponent",
+  "website":        "https:/github.com/adamski/AnimatedStack",
+  "license":        "The MIT License (MIT)",
+
+  "dependencies":   [ { "id": "juce_core",   "version": "matching" },
+                      { "id": "juce_gui_basics", "version": "matching" },
+                      { "id": "juce_graphics", "version": "matching" },
+                      { "id": "juce_events", "version": "matching" } ],
+
+  "include":        "haydxn_stack_component.h",
+
+  "compile":        [ { "file": "haydxn_stack_component.cpp", "target": "! xcode" },
+                      { "file": "haydxn_stack_component.mm",  "target": "xcode" } ],
+
+  "browse":         [ "src/*" ]
+}

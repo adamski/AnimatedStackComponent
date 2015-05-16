@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="laDjwk" name="StackDemo" projectType="guiapp" version="1.1.0"
+              juceLinkage="amalg_multi" buildVST="1" buildRTAS="0" buildAU="1"
+              pluginName="Juce Project" pluginDesc="Juce Project" pluginManufacturer="yourcompany"
+              pluginManufacturerCode="Manu" pluginCode="Plug" pluginChannelConfigs="{1, 1}, {2, 2}"
+              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginSilenceInIsSilenceOut="0" pluginTailLength="0" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="JuceProjectAU" pluginAUViewClass="JuceProjectAU_V1"
+              pluginRTASCategory="" bundleIdentifier="com.yourcompany.StackDemo"
+              jucerVersion="3.1.1" includeBinaryInAppConfig="1">
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="~/SDKs/vstsdk2.4" rtasFolder="~/SDKs/PT_80_SDK"
+               objCExtraSuffix="nOKKHs">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StackDemo"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="StackDemo"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="adamski_animated_stack" path="../../modules"/>
+        <MODULEPATH id="haydxn_stack_component" path="../../modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <XCODE_IPHONE targetFolder="Builds/iOS" vstFolder="~/SDKs/vstsdk2.4" rtasFolder="~/SDKs/PT_80_SDK"
+                  objCExtraSuffix="navG3I">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StackDemo"
+                       iosCompatibility="default"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="StackDemo"
+                       iosCompatibility="default"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="adamski_animated_stack" path="../../modules"/>
+        <MODULEPATH id="haydxn_stack_component" path="../../modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
+    <VS2005 targetFolder="Builds/VisualStudio2005" vstFolder="c:\SDKs\vstsdk2.4"
+            rtasFolder="c:\SDKs\PT_80_SDK" libraryType="1">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StackDemo"
+                       winWarningLevel="4" generateManifest="1"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="StackDemo"
+                       winWarningLevel="4" generateManifest="1"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="adamski_animated_stack" path="../../modules"/>
+        <MODULEPATH id="haydxn_stack_component" path="../../modules"/>
+      </MODULEPATHS>
+    </VS2005>
+    <VS2008 targetFolder="Builds/VisualStudio2008" vstFolder="c:\SDKs\vstsdk2.4"
+            rtasFolder="c:\SDKs\PT_80_SDK" libraryType="1">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StackDemo"
+                       winWarningLevel="4" generateManifest="1"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="StackDemo"
+                       winWarningLevel="4" generateManifest="1"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="adamski_animated_stack" path="../../modules"/>
+        <MODULEPATH id="haydxn_stack_component" path="../../modules"/>
+      </MODULEPATHS>
+    </VS2008>
+    <VS2010 targetFolder="Builds/VisualStudio2010" vstFolder="c:\SDKs\vstsdk2.4"
+            rtasFolder="c:\SDKs\PT_80_SDK" libraryType="1">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StackDemo"
+                       winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="StackDemo"
+                       winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="adamski_animated_stack" path="../../modules"/>
+        <MODULEPATH id="haydxn_stack_component" path="../../modules"/>
+      </MODULEPATHS>
+    </VS2010>
+  </EXPORTFORMATS>
+  <MAINGROUP id="hXniUA" name="StackDemo">
+    <FILE id="LADZK3" name="StackDemo.jucer" compile="0" resource="1" file="StackDemo.jucer"/>
+    <GROUP id="WOWKMm" name="Source">
+      <GROUP id="J47tpH" name="Resources"/>
+      <GROUP id="SsfCI8" name="UI">
+        <FILE id="r3NT5F" name="ValueTreeListBox.cpp" compile="1" resource="0"
+              file="Source\UI\ValueTreeListBox.cpp"/>
+        <FILE id="sPqBd" name="ValueTreeListBox.h" compile="0" resource="0"
+              file="Source\UI\ValueTreeListBox.h"/>
+        <FILE id="sVtNIx" name="ValueTreeStackPanel.cpp" compile="1" resource="0"
+              file="Source\UI\ValueTreeStackPanel.cpp"/>
+        <FILE id="nZr29" name="ValueTreeStackPanel.h" compile="0" resource="0"
+              file="Source\UI\ValueTreeStackPanel.h"/>
+        <FILE id="PmXEiv" name="HeaderLabel.cpp" compile="1" resource="0" file="Source\UI\HeaderLabel.cpp"/>
+        <FILE id="eZUJNj" name="HeaderLabel.h" compile="0" resource="0" file="Source\UI\HeaderLabel.h"/>
+        <FILE id="fpjC9E" name="MarginedContainerComponent.cpp" compile="1"
+              resource="0" file="Source\UI\MarginedContainerComponent.cpp"/>
+        <FILE id="BAtGzG" name="MarginedContainerComponent.h" compile="0" resource="0"
+              file="Source\UI\MarginedContainerComponent.h"/>
+      </GROUP>
+      <FILE id="hlhv81" name="MainWindow.cpp" compile="1" resource="0" file="Source\MainWindow.cpp"/>
+      <FILE id="yYmP0S" name="MainWindow.h" compile="0" resource="0" file="Source\MainWindow.h"/>
+      <FILE id="FPOVAT" name="Main.cpp" compile="1" resource="0" file="Source\Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS/>
+  <MODULES>
+    <MODULES id="adamski_animated_stack" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="haydxn_stack_component" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+</JUCERPROJECT>
