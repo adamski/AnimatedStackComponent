@@ -125,8 +125,6 @@ static const unsigned char temp_binary_data_0[] =
 "              file=\"Source\\UI\\ValueTreeStackPanel.cpp\"/>\r\n"
 "        <FILE id=\"nZr29\" name=\"ValueTreeStackPanel.h\" compile=\"0\" resource=\"0\"\r\n"
 "              file=\"Source\\UI\\ValueTreeStackPanel.h\"/>\r\n"
-"        <FILE id=\"PmXEiv\" name=\"HeaderLabel.cpp\" compile=\"1\" resource=\"0\" file=\"Source\\UI\\HeaderLabel.cpp\"/>\r\n"
-"        <FILE id=\"eZUJNj\" name=\"HeaderLabel.h\" compile=\"0\" resource=\"0\" file=\"Source\\UI\\HeaderLabel.h\"/>\r\n"
 "        <FILE id=\"fpjC9E\" name=\"MarginedContainerComponent.cpp\" compile=\"1\"\r\n"
 "              resource=\"0\" file=\"Source\\UI\\MarginedContainerComponent.cpp\"/>\r\n"
 "        <FILE id=\"BAtGzG\" name=\"MarginedContainerComponent.h\" compile=\"0\" resource=\"0\"\r\n"
@@ -162,7 +160,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
-        case 0x44f06251:  numBytes = 8659; return StackDemo_jucer;
+        case 0x44f06251:  numBytes = 8443; return StackDemo_jucer;
         default: break;
     }
 

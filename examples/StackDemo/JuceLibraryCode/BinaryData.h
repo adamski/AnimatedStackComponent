@@ -10,7 +10,7 @@
 namespace BinaryData
 {
     extern const char*   StackDemo_jucer;
-    const int            StackDemo_jucerSize = 8659;
+    const int            StackDemo_jucerSize = 8443;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

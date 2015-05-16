@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\UI\ValueTreeListBox.cpp"/>
     <ClCompile Include="..\..\Source\UI\ValueTreeStackPanel.cpp"/>
-    <ClCompile Include="..\..\Source\UI\HeaderLabel.cpp"/>
     <ClCompile Include="..\..\Source\UI\MarginedContainerComponent.cpp"/>
     <ClCompile Include="..\..\Source\MainWindow.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
@@ -133,6 +132,12 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\adamski_animated_stack\src\ShutterAnimator.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\adamski_animated_stack\src\SlideAnimator.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\adamski_animated_stack\src\StackAnimator.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\haydxn_stack_component\src\HeaderLabel.cpp">
@@ -912,7 +917,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\UI\ValueTreeListBox.h"/>
     <ClInclude Include="..\..\Source\UI\ValueTreeStackPanel.h"/>
-    <ClInclude Include="..\..\Source\UI\HeaderLabel.h"/>
     <ClInclude Include="..\..\Source\UI\MarginedContainerComponent.h"/>
     <ClInclude Include="..\..\Source\MainWindow.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\AnimatedStackComponent.h"/>

@@ -142,8 +142,6 @@
           <File RelativePath="..\..\Source\UI\ValueTreeListBox.h"/>
           <File RelativePath="..\..\Source\UI\ValueTreeStackPanel.cpp"/>
           <File RelativePath="..\..\Source\UI\ValueTreeStackPanel.h"/>
-          <File RelativePath="..\..\Source\UI\HeaderLabel.cpp"/>
-          <File RelativePath="..\..\Source\UI\HeaderLabel.h"/>
           <File RelativePath="..\..\Source\UI\MarginedContainerComponent.cpp"/>
           <File RelativePath="..\..\Source\UI\MarginedContainerComponent.h"/>
         </Filter>
@@ -177,7 +175,27 @@
             </FileConfiguration>
           </File>
           <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\ShutterAnimator.h"/>
+          <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\SlideAnimator.cpp">
+            <FileConfiguration Name="Debug|Win32"
+                               ExcludedFromBuild="true">
+              <Tool Name="VCCLCompilerTool"/>
+            </FileConfiguration>
+            <FileConfiguration Name="Release|Win32"
+                               ExcludedFromBuild="true">
+              <Tool Name="VCCLCompilerTool"/>
+            </FileConfiguration>
+          </File>
           <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\SlideAnimator.h"/>
+          <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\StackAnimator.cpp">
+            <FileConfiguration Name="Debug|Win32"
+                               ExcludedFromBuild="true">
+              <Tool Name="VCCLCompilerTool"/>
+            </FileConfiguration>
+            <FileConfiguration Name="Release|Win32"
+                               ExcludedFromBuild="true">
+              <Tool Name="VCCLCompilerTool"/>
+            </FileConfiguration>
+          </File>
           <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\StackAnimator.h"/>
         </Filter>
         <File RelativePath="..\..\..\..\modules\adamski_animated_stack\juce_module_info">
