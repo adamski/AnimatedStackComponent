@@ -15,6 +15,7 @@
 #include "src/StackHeaderComponent.h"
 #include "src/StackNavigationList.h"
 #include "src/HeaderLabel.h"
+#include "src/MarginedContainerComponent.h"
 
 
 #endif   // HAYDXN_STACK_COMPONENT_H_INCLUDED

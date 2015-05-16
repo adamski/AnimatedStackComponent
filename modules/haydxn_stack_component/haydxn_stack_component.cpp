@@ -18,4 +18,5 @@
 #include "src/StackHeaderComponent.cpp"
 #include "src/StackNavigationList.cpp"
 #include "src/HeaderLabel.cpp"
+#include "src/MarginedContainerComponent.cpp"
 
