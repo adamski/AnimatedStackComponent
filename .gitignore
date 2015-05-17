@@ -1,14 +1,6 @@
 .ycm_extra_conf.pyc
 tags
-Builds/Android/bin
-Builds/Android/libs
-Builds/Android/obj
-Builds/Android/gen
-Builds/Android/local.properties
-Builds/Android/project.properties
-Builds/Android/build.xml
-!Builds/Android/src
-!Builds/Android/res
+Builds/
 # Xcode
 .DS_Store
 build/
