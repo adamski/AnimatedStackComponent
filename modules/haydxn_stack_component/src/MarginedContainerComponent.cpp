@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-#include "MarginedContainerComponent.h"
-
 namespace MarginedContainerHelpers
 {
 	static const char* leftMarginMarker = "LMarginMarker";

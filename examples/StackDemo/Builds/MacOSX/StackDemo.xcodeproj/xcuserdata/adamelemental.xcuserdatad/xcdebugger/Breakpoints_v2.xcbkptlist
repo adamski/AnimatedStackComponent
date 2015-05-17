@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../modules/adamski_animated_stack/src/StackAnimator.h"
-            timestampString = "453503914.823864"
+            timestampString = "453537233.363584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15">
+            startingLineNumber = "13"
+            endingLineNumber = "13">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -341,11 +341,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../modules/adamski_animated_stack/src/StackAnimator.h"
-            timestampString = "453503914.823864"
+            timestampString = "453537233.363584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28">
+            startingLineNumber = "26"
+            endingLineNumber = "26">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

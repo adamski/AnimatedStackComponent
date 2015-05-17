@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-#include "HeaderLabel.h"
-
 const int HeaderLabel::textColourId = 0x12019;
 
 HeaderLabel::HeaderLabel ()

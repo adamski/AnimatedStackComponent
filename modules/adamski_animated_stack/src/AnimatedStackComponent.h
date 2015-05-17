@@ -11,8 +11,6 @@
 #ifndef __ANIMATEDSTACKCOMPONENT_H_INCLUDED
 #define __ANIMATEDSTACKCOMPONENT_H_INCLUDED
 
-//class StackComponent;
-
 #include "StackAnimator.h"
 
 namespace AnimatedStackHelpers

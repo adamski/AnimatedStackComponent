@@ -8,7 +8,6 @@
   ==============================================================================
 */
 
-#include "SlidingStackComponent.h"
 
 SlidingStackComponent::SlidingStackComponent ()
 :	slideDuration (150),

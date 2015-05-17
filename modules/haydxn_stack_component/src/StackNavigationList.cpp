@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-#include "StackNavigationList.h"
-
 const Identifier StackNavigationList::titlePropertyId ("StackNavigationList_Title");
 
 StackNavigationList::StackNavigationList ()

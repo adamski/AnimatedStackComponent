@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-#include "ShutterAnimator.h"
-
 ShutterAnimator::ShutterAnimator (Rectangle<int> focusArea)
     :   StackAnimator(),
         focusArea (focusArea),

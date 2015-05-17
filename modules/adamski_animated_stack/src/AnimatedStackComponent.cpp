@@ -8,8 +8,6 @@
     ==============================================================================
 */
 
-#include "AnimatedStackComponent.h"
-
 AnimatedStackComponent::AnimatedStackComponent (const StackAnimator::Ptr & defaultStackAnimator) 
     :   StackComponent(), 
         stackAnimator (defaultStackAnimator)

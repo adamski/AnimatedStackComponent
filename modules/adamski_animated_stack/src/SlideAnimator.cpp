@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-#include "SlideAnimator.h"
-
 SlideAnimator::SlideAnimator ()
     :   StackAnimator(),
         slideDuration (150),

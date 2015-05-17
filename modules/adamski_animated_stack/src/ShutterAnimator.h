@@ -12,9 +12,6 @@
 #define SHUTTERANIMATOR_H_INCLUDED
 
 
-#include "JuceHeader.h"
-#include "StackComponent.h" 
-
 class ShutterAnimator : public StackAnimator, private juce::ChangeListener
 {
 public:

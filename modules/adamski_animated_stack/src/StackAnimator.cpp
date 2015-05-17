@@ -8,7 +8,6 @@
   ==============================================================================
 */
 
-#include "StackAnimator.h"
 
 StackAnimator::StackAnimator () {}
     

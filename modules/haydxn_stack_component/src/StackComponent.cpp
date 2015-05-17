@@ -9,8 +9,6 @@
     ==============================================================================
 */
 
-#include "StackComponent.h"
-
 StackComponent::StackComponent ()
 :	stackFocusIndex (0),
     popAutoFocusOrder (autoFocusBeforeContentChange)

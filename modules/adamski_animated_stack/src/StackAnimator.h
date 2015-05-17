@@ -11,8 +11,6 @@
 #ifndef STACKANIMATOR_H_INCLUDED
 #define STACKANIMATOR_H_INCLUDED
 
-// class AnimatedStackComponent;
-
 class StackAnimator : public juce::ReferenceCountedObject
 {
 public:

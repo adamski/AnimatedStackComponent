@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F47C4A48-C979-46FB-9DAD-D3390CA4AE28</string>
 	<key>IDESourceControlProjectName</key>
-	<string>StackDemo</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1CDCD56F5CC9D43103FE450BE6506584BD48197A</key>
@@ -16,7 +16,7 @@
 		<string>github.com:julianstorer/JUCE.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>examples/StackDemo/Builds/MacOSX/StackDemo.xcodeproj</string>
+	<string>examples/StackDemo/Builds/MacOSX/StackDemo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1CDCD56F5CC9D43103FE450BE6506584BD48197A</key>

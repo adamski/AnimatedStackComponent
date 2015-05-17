@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-#include "StackHeaderComponent.h"
-
 const Identifier StackHeaderComponent::contentTitlePropertyId ("BasicStackHeader_Title");
 const char* StackHeaderComponent::titleLabelId = "Title";
 
