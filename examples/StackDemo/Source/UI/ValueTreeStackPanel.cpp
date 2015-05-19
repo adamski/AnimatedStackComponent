@@ -57,7 +57,6 @@ ValueTreeStackPanel::~ValueTreeStackPanel ()
 {
 }
 
-
 void ValueTreeStackPanel::paint (Graphics& g)
 {
 	g.fillAll (Colours::grey);
@@ -93,9 +92,7 @@ void ValueTreeStackPanel::valueTreeListBoxItemDoubleClicked (ValueTreeListBox* s
     if (index == 1)
     {
         Rectangle<int> rowPosition = source->getListBox().getRowPosition(index, false);
-        // SlideAnimator::Ptr slideAnimator = new SlideAnimator(350, 0.5, 1.0);
         ShutterAnimator::Ptr shutterAnimator = new ShutterAnimator(rowPosition, 300, 0.5, 1.0);
-        DBG ("Set new ShutterAnimator");
         shutterAnimator->setStackComponent(getStack());
         AnimatedStackHelpers::setStackAnimatorForComponent(shutterAnimator, nextPanel);
     }
@@ -116,7 +113,7 @@ void ValueTreeStackPanel::repopulateProperties ()
 	Array<PropertyComponent*> props;
 
 	props.add (new ValueTreeListProp (node,this));
-	properties.addSection ("Children",props,true);
+	properties.addSection ("Children", props, true);
 	props.clear();
 
 	int n = node.getNumProperties ();
@@ -127,6 +124,6 @@ void ValueTreeStackPanel::repopulateProperties ()
 		PropertyComponent* c = new TextPropertyComponent (value,name.toString(),255,false);
 		props.add (c);
 	}
-	properties.addSection ("Properties",props,true);
+	properties.addSection ("Properties", props, true);
 
 }

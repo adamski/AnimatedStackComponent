@@ -11,8 +11,6 @@
 #ifndef SLIDEANIMATOR_H_INCLUDED
 #define SLIDEANIMATOR_H_INCLUDED
 
-using namespace juce;
-
 class SlideAnimator : public StackAnimator 
 {
 public:
@@ -21,14 +19,14 @@ public:
     SlideAnimator (int slideDuration, float startSpeed, float endSpeed);
 
     void refreshLayout ();
-    void animateContentComponentAdded (Component *newContent, int index);
-    void animateContentComponentRemoved (Component* contentRemoved, int index);
-    void animateStackFocusChange (Component* newFocusContent, int newIndex, int oldIndex);
+    void animateContentComponentAdded (juce::Component *newContent, int index);
+    void animateContentComponentRemoved (juce::Component* contentRemoved, int index);
+    void animateStackFocusChange (juce::Component* newFocusContent, int newIndex, int oldIndex);
     void setSlideDuration (int durationMs, double newStartSpeed, double newEndSpeed);
 
 private:
 
-    Rectangle<int> getBoundsForContent (int index);
+    juce::Rectangle<int> getBoundsForContent (int index);
 
     int slideDuration;
     double startSpeed;
