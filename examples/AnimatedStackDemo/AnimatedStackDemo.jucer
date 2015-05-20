@@ -5,6 +5,10 @@
               jucerVersion="3.1.1">
   <MAINGROUP id="LCyQfu" name="AnimatedStackDemo">
     <GROUP id="{0394B34A-F1A2-02EF-D3D2-822665884753}" name="Source">
+      <FILE id="VlMiiE" name="AnimatedStackPanel.cpp" compile="1" resource="0"
+            file="Source/AnimatedStackPanel.cpp"/>
+      <FILE id="RBTe2O" name="AnimatedStackPanel.h" compile="0" resource="0"
+            file="Source/AnimatedStackPanel.h"/>
       <FILE id="rki9gP" name="AnimatedListBox.h" compile="0" resource="0"
             file="Source/AnimatedListBox.h"/>
       <FILE id="IACKGD" name="MainComponent.cpp" compile="1" resource="0"
