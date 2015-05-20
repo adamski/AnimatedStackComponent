@@ -27,13 +27,15 @@ namespace AnimatedListBoxIds
 class AnimatedListBox    : public ListBox, public ListBoxModel 
 {
 public:
-    AnimatedListBox(ValueTree data, std::function <void(int, ListBox*, ValueTree, const MouseEvent&)> itemClicked)
+    typedef std::function <void(int, ListBox*, ValueTree, const MouseEvent&)> ItemCallbackFunction;
+
+    AnimatedListBox(ValueTree data,  ItemCallbackFunction itemClicked)
     :   ListBox("Animated ListBox", this), 
         data (data), 
         itemClicked (itemClicked) 
     {
         setModel (this);
-        this->setRowHeight (50); // use proportionOfHeight plus min height, e.g. for retina screens
+        this->setRowHeight (45); // use proportionOfHeight plus min height, e.g. for retina screens
     }
 
     ~AnimatedListBox()
@@ -89,12 +91,18 @@ public:
         g.fillAll (Colour (0xff001F36));
         
         g.setFont (Font (16.0f));
-        g.setColour (Colours::white);
+        g.setColour (Colours::whitesmoke);
         g.drawText(getValueTreeForRow (rowNumber).getProperty (AnimatedListBoxIds::title), 0, 0, width, height, Justification::centred, true);
+    
         if (rowIsSelected)
         {
-            g.drawRect (getBounds());
+            g.setColour (Colours::whitesmoke);
         }
+        else
+        {
+            g.setColour (Colours::olive);
+        }
+        g.drawRect (0, 0, getWidth(), getRowHeight());
     }
 
     void listBoxItemClicked (int row, const MouseEvent &e)
@@ -108,7 +116,7 @@ public:
 
 private:
     ValueTree data;
-    std::function <void(int, ListBox*, ValueTree, const MouseEvent&)> itemClicked;
+    ItemCallbackFunction itemClicked;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AnimatedListBox)
 };
