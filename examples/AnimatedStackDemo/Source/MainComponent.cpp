@@ -31,7 +31,12 @@ MainContentComponent::MainContentComponent()
     node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
     data.addChild (node3, -1, nullptr);
 
-    addAndMakeVisible (listBox = new AnimatedListBox (data,
+    // SlideAnimator::Ptr slideAnimator = new SlideAnimator();
+
+    addAndMakeVisible (animatedStackComponent = new AnimatedStackComponent(/* slideAnimator */));
+    animatedStackComponent->setBounds (getBounds());
+    
+    animatedStackComponent->push (listBox = new AnimatedListBox (data,
         // itemClicked callback function
         [this] (int row, ListBox* source, ValueTree node, const MouseEvent &e)
         {
@@ -39,10 +44,20 @@ MainContentComponent::MainContentComponent()
             DBG (rowPosition.toString());
             DBG (node.toXmlString());
             DBG ("row number clicked: " << row);
+
+            ShutterAnimator::Ptr shutterAnimator = new ShutterAnimator(rowPosition, 300, 0.5, 1.0);
+            shutterAnimator->setStackComponent (animatedStackComponent);
+            if (!editorComponent) 
+            {
+                editorComponent = new EditorComponent();
+                AnimatedStackHelpers::setStackAnimatorForComponent (shutterAnimator, editorComponent);
+            }
+            animatedStackComponent->push (editorComponent, true);
         }
-    ));
-    DBG (data.toXmlString());
+    ), true);
     listBox->setBounds (getBounds());
+    
+    //animatedStackComponent->push (homeComponent = new HomeComponent(), true, true, false);
 }
 
 MainContentComponent::~MainContentComponent()
