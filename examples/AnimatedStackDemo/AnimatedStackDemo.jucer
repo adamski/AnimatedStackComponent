@@ -5,6 +5,13 @@
               jucerVersion="3.1.1">
   <MAINGROUP id="LCyQfu" name="AnimatedStackDemo">
     <GROUP id="{0394B34A-F1A2-02EF-D3D2-822665884753}" name="Source">
+      <FILE id="RLs23L" name="EditorComponent.cpp" compile="1" resource="0"
+            file="Source/EditorComponent.cpp"/>
+      <FILE id="yM5t38" name="EditorComponent.h" compile="0" resource="0"
+            file="Source/EditorComponent.h"/>
+      <FILE id="pbo0lQ" name="HomeComponent.cpp" compile="1" resource="0"
+            file="Source/HomeComponent.cpp"/>
+      <FILE id="d0r3QL" name="HomeComponent.h" compile="0" resource="0" file="Source/HomeComponent.h"/>
       <FILE id="VlMiiE" name="AnimatedStackPanel.cpp" compile="1" resource="0"
             file="Source/AnimatedStackPanel.cpp"/>
       <FILE id="RBTe2O" name="AnimatedStackPanel.h" compile="0" resource="0"
