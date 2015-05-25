@@ -28,6 +28,31 @@ ShutterAnimator::ShutterAnimator (Rectangle<int> focusArea, int slideDuration, f
     Desktop::getInstance().getAnimator().addChangeListener (this);
 }
 
+ShutterAnimator::ShutterAnimator () 
+    :   StackAnimator(),
+        slideDuration (150),
+        startSpeed (1.0),
+        endSpeed (1.0)
+{
+    Desktop::getInstance().getAnimator().addChangeListener (this);
+}
+
+ShutterAnimator::ShutterAnimator (int slideDuration, float startSpeed, float endSpeed)
+    :   StackAnimator(),
+        slideDuration (slideDuration),
+        startSpeed (startSpeed),
+        endSpeed (endSpeed)
+{
+    Desktop::getInstance().getAnimator().addChangeListener (this);
+}
+
+
+void ShutterAnimator::setFocusArea (Rectangle<int> newFocusArea)
+{
+    focusArea = newFocusArea;
+}
+
+
 void ShutterAnimator::refreshLayout ()
 {
     for (int i = 0; i < stackComponent->getStackSize (); i++)

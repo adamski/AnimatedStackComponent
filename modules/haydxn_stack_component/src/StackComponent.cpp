@@ -27,6 +27,7 @@ void StackComponent::push (Component* contentComponent, bool shouldBeDeleted, bo
 {
     if (contentComponent)
     {
+        jassert (contentComponent != nullptr);
         jassert (!contentComps.contains(contentComponent)); // !!!
 
         int newIndex = contentComps.size ();

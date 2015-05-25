@@ -24,6 +24,7 @@ public:
     virtual void animateStackFocusChange (juce::Component* newFocusContent, int newIndex, int oldIndex) = 0;
     virtual void refreshLayout() = 0;
 
+    virtual void setFocusArea(juce::Rectangle<int> newFocusArea) {};
     void setStackComponent(AnimatedStackComponent* stack);
 
 protected:

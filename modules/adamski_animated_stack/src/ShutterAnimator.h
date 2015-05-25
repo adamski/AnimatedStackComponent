@@ -18,6 +18,11 @@ public:
 
     ShutterAnimator (juce::Rectangle<int> focusArea);
     ShutterAnimator (juce::Rectangle<int> focusArea, int slideDuration, float startSpeed, float endSpeed);
+    ShutterAnimator ();
+    ShutterAnimator (int slideDuration, float startSpeed, float endSpeed);
+    
+    void setFocusArea (juce::Rectangle<int> newFocusArea);
+
     void refreshLayout ();
     void animateContentComponentAdded (juce::Component *newContent, int index);
  
@@ -26,6 +31,7 @@ public:
      * so that the animation can play on top of it
      */
     void animateContentComponentRemoved (juce::Component* contentRemoved, int index);
+    
     void animateStackFocusChange (juce::Component* newFocusContent, int newIndex, int oldIndex);
     void setDuration (int durationMs, double newStartSpeed, double newEndSpeed);
 
