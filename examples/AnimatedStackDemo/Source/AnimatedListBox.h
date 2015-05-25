@@ -92,8 +92,7 @@ public:
         
         g.setFont (Font (16.0f));
         g.setColour (Colours::whitesmoke);
-        g.drawText(getValueTreeForRow (rowNumber).getProperty (AnimatedListBoxIds::title), 0, 0, width, height, Justification::centred, true);
-    
+
         if (rowIsSelected)
         {
             g.setColour (Colours::whitesmoke);
@@ -103,6 +102,10 @@ public:
             g.setColour (Colours::olive);
         }
         g.drawRect (0, 0, getWidth(), getRowHeight());
+
+        String title = getValueTreeForRow (rowNumber).getProperty (AnimatedListBoxIds::title);
+        g.drawText(title, 0, 0, width, height, Justification::centred, true);
+    
     }
 
     void listBoxItemClicked (int row, const MouseEvent &e)
