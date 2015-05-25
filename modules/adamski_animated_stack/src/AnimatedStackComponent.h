@@ -27,27 +27,30 @@ namespace AnimatedStackHelpers
 
 class AnimatedStackComponent	:	public StackComponent
 {
-public:
+    friend class DefaultStackAnimator;
 
-	AnimatedStackComponent (const StackAnimator::Ptr & defaultStackAnimator);
-	~AnimatedStackComponent ();
+    public:
+
+        AnimatedStackComponent (const StackAnimator::Ptr & defaultStackAnimator);
+        AnimatedStackComponent ();
+        ~AnimatedStackComponent ();
 
         void setDefaultStackAnimator(StackAnimator* defaultStackAnimator);
 
-protected:
+        // // override StackComponent push so we can automatically switch animate on or off
+	// void push (juce::Component* contentComponent, bool shouldBeDeleted, bool autoFocus = true, bool animate = true);
 
-    virtual void handleContentComponentAdded (juce::Component* newContent, int index, bool animate);
-    virtual void handleContentComponentRemoved (juce::Component* contentRemoved, int index, bool animate);
-	virtual void handleStackFocusChange (juce::Component* newFocusContent, int newIndex, int oldIndex, bool animate);
+    protected:
+
+        virtual void handleContentComponentAdded (juce::Component* newContent, int index, bool animate);
+        virtual void handleContentComponentRemoved (juce::Component* contentRemoved, int index, bool animate);
+        virtual void handleStackFocusChange (juce::Component* newFocusContent, int newIndex, int oldIndex, bool animate);
 
         StackAnimator::Ptr getStackAnimatorForComponent (juce::Component* component);
-        void setStackAnimatorForComponent (StackAnimator::Ptr stackAnimator, juce::Component *component);
         StackAnimator::Ptr getStackAnimator();
 
-
-private:
-    StackAnimator::Ptr stackAnimator;
-
+    private:
+        StackAnimator::Ptr stackAnimator;
 };
 
 

@@ -24,10 +24,10 @@ public:
     virtual void animateStackFocusChange (juce::Component* newFocusContent, int newIndex, int oldIndex) = 0;
     virtual void refreshLayout() = 0;
 
-    void setStackComponent(StackComponent* stack);
+    void setStackComponent(AnimatedStackComponent* stack);
 
 protected:
-    juce::ScopedPointer<StackComponent> stackComponent;
+    juce::ScopedPointer<AnimatedStackComponent> stackComponent;
 };
     
 

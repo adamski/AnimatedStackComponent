@@ -8,6 +8,8 @@
     ==============================================================================
 */
 
+class DefaultStackAnimator;
+
 AnimatedStackComponent::AnimatedStackComponent (const StackAnimator::Ptr & defaultStackAnimator) 
     :   StackComponent(), 
         stackAnimator (defaultStackAnimator)
@@ -15,14 +17,26 @@ AnimatedStackComponent::AnimatedStackComponent (const StackAnimator::Ptr & defau
     stackAnimator->setStackComponent (this);
 }
 
-AnimatedStackComponent::~AnimatedStackComponent ()
+AnimatedStackComponent::AnimatedStackComponent () 
+    :   StackComponent()
 {
+    stackAnimator = new DefaultStackAnimator(); 
+    stackAnimator->setStackComponent (this);
 }
+
+AnimatedStackComponent::~AnimatedStackComponent ()
+{}
 
 void AnimatedStackComponent::setDefaultStackAnimator(StackAnimator* defaultStackAnimator)
 {
     stackAnimator = defaultStackAnimator;
 }
+
+// void AnimatedStackComponent::push (juce::Component* contentComponent, bool shouldBeDeleted, bool autoFocus, bool animate) 
+// {
+//     if (stackAnimator.get() == nullptr) animate = false;
+//     StackComponent::push (contentComponent, shouldBeDeleted, autoFocus, animate);
+// }
 
 
 void AnimatedStackComponent::handleContentComponentAdded (Component* newContent, int index, bool animate)
@@ -50,7 +64,7 @@ void AnimatedStackComponent::handleContentComponentRemoved (Component* contentRe
 
 void AnimatedStackComponent::handleStackFocusChange (Component* newFocusContent, int newIndex, int oldIndex, bool animate)
 {
-    if (!animate)
+    if (! animate )
     {
         getStackAnimatorForComponent (newFocusContent)->refreshLayout();
     }
@@ -76,11 +90,6 @@ StackAnimator::Ptr AnimatedStackComponent::getStackAnimatorForComponent (Compone
     {
         return getStackAnimator();  
     }
-}
-
-void AnimatedStackComponent::setStackAnimatorForComponent (StackAnimator::Ptr stackAnimator, Component *component) 
-{
-   component->getProperties().set (AnimatedStackHelpers::stackAnimatorId, var(stackAnimator));
 }
 
 StackAnimator::Ptr AnimatedStackComponent::getStackAnimator() 

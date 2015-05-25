@@ -20,7 +20,7 @@ void StackAnimator::refreshLayout()
     jassert (stackComponent != nullptr);
 }
 
-void StackAnimator::setStackComponent(StackComponent* stack)
+void StackAnimator::setStackComponent(AnimatedStackComponent* stack)
 {
     stackComponent = stack;
 }

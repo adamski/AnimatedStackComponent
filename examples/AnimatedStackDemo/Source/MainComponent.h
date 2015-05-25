@@ -11,6 +11,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AnimatedListBox.h"
+#include "HomeComponent.h"
+#include "EditorComponent.h"
 
 //==============================================================================
 /*
@@ -29,6 +31,9 @@ public:
 
 private:
     ScopedPointer<AnimatedListBox> listBox;
+    ScopedPointer<AnimatedStackComponent> animatedStackComponent;
+    ScopedPointer<HomeComponent> homeComponent;
+    ScopedPointer<EditorComponent> editorComponent;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
