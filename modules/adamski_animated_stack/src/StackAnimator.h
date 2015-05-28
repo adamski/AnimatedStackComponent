@@ -17,7 +17,7 @@ public:
     typedef juce::ReferenceCountedObjectPtr<StackAnimator> Ptr;
 
     StackAnimator ();
-    virtual ~StackAnimator() {};
+    virtual ~StackAnimator();
     
     virtual void animateContentComponentAdded (juce::Component* newContent, int index) = 0;
     virtual void animateContentComponentRemoved (juce::Component* contentRemoved, int index) = 0;
@@ -28,7 +28,7 @@ public:
     void setStackComponent(AnimatedStackComponent* stack);
 
 protected:
-    juce::ScopedPointer<AnimatedStackComponent> stackComponent;
+    juce::Component::SafePointer<AnimatedStackComponent> stackComponent;
 };
     
 

@@ -46,7 +46,14 @@ ShutterAnimator::ShutterAnimator (int slideDuration, float startSpeed, float end
     Desktop::getInstance().getAnimator().addChangeListener (this);
 }
 
-
+ShutterAnimator::~ShutterAnimator ()
+{
+    topSnapshot = nullptr;
+    bottomSnapshot = nullptr;
+    focusSnapshot = nullptr;
+    deletedPanel = nullptr;
+    previousPanel.deleteAndZero(); 
+}
 void ShutterAnimator::setFocusArea (Rectangle<int> newFocusArea)
 {
     focusArea = newFocusArea;

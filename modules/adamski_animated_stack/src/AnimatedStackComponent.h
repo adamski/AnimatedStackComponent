@@ -19,8 +19,8 @@ namespace AnimatedStackHelpers
 
     static void setStackAnimatorForComponent (StackAnimator::Ptr stackAnimator, juce::Component *component)
     {
-        stackAnimator->incReferenceCount(); // this prevents a crash when using 'Back' button on this component
         component->getProperties().set (AnimatedStackHelpers::stackAnimatorId, juce::var(stackAnimator));
+        stackAnimator->incReferenceCount(); // this prevents a crash when using 'Back' button on this component
     }
 
 };

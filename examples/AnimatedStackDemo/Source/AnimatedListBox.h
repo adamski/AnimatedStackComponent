@@ -38,10 +38,6 @@ public:
         this->setRowHeight (45); // use proportionOfHeight plus min height, e.g. for retina screens
     }
 
-    ~AnimatedListBox()
-    {
-    }
-
     int getNumRows() 
     {
         return data.getNumChildren ();
@@ -67,7 +63,7 @@ public:
         //         row = new NoteRatioComponent (getValueTreeForRow (rowNumber), sharedObjects);
         //     }
         //
-        //     else #<{(| Update all properties of your custom component with the data for the current row  |)}>#
+        //     else // Update all properties of your custom component with the data for the current row
         //     {
         //         DBG ("Updating NoteRatioComponent:");
         //         row->setNoteRatio (getValueTreeForRow (rowNumber));
@@ -106,6 +102,11 @@ public:
         String title = getValueTreeForRow (rowNumber).getProperty (AnimatedListBoxIds::title);
         g.drawText(title, 0, 0, width, height, Justification::centred, true);
     
+    }
+
+    void paint (Graphics& g)
+    {
+        g.fillAll (Colours::black);
     }
 
     void listBoxItemClicked (int row, const MouseEvent &e)

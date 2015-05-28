@@ -96,6 +96,7 @@ public:
 	class Listener
 	{
 	public:
+        virtual ~Listener() {}
 
 		/** Called whenever the composition of the stack changes.
 			(i.e. when a content component is pushed or popped). */

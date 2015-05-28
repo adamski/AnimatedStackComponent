@@ -14,6 +14,15 @@
 #include "HomeComponent.h"
 #include "EditorComponent.h"
 
+namespace Ids 
+{
+    static const Identifier data ("Data");
+    static const Identifier node ("Node");
+    static const Identifier title ("Title");
+    static const Identifier description ("Description");
+    static const Identifier animator ("Animator");
+}
+
 //==============================================================================
 /*
     This component lives inside our window, and this is where you should put all
@@ -31,11 +40,12 @@ public:
 
 private:
     ScopedPointer<AnimatedListBox> listBox;
-    ScopedPointer<AnimatedStackComponent> animatedStackComponent;
+    ScopedPointer<AnimatedStackComponent> animatedStack;
     ScopedPointer<HomeComponent> homeComponent;
     ScopedPointer<EditorComponent> editorComponent;
+    ScopedPointer<StackHeaderComponent> header;
     ShutterAnimator::Ptr shutterAnimator;
-    //SlideAnimator::Ptr slideAnimator;
+    SlideAnimator::Ptr slideAnimator;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)

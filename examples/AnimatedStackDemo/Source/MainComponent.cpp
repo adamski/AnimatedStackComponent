@@ -13,35 +13,51 @@
 MainContentComponent::MainContentComponent()
 {
     setSize (600, 400);
-     ValueTree data (AnimatedListBoxIds::data);  
-    
-     ValueTree node1 (AnimatedListBoxIds::node);
-     node1.setProperty (AnimatedListBoxIds::title, "Slide", nullptr);
-     node1.setProperty (AnimatedListBoxIds::description, "Sliding Animator", nullptr);
-     data.addChild (node1, -1, nullptr);
-    
-     ValueTree node2 (AnimatedListBoxIds::node);
-     node2.setProperty (AnimatedListBoxIds::title, "Shutter", nullptr);
-     node2.setProperty (AnimatedListBoxIds::description, "Shutter Animator", nullptr);
-     data.addChild (node2, -1, nullptr);
-    
-     ValueTree node3 (AnimatedListBoxIds::node);
-     node3.setProperty (AnimatedListBoxIds::title, "Fade", nullptr);
-     node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
-     data.addChild (node3, -1, nullptr);
+
+    shutterAnimator = new ShutterAnimator(300, 0.5, 1.0);
+    //slideAnimator = new SlideAnimator(300, 0.5, 1.0);
+
+    ValueTree data (Ids::data);  
+
+    ValueTree node1 (Ids::node);
+    node1.setProperty (Ids::title, "Item 1", nullptr);
+    node1.setProperty (Ids::description, "Blah blah", nullptr);
+    data.addChild (node1, -1, nullptr);
+
+    ValueTree node2 (Ids::node);
+    node2.setProperty (Ids::title, "Item 2", nullptr);
+    node2.setProperty (Ids::description, "Shutter Animator", nullptr);
+    data.addChild (node2, -1, nullptr);
+
+    ValueTree node3 (Ids::node);
+    node3.setProperty (Ids::title, "Item 3", nullptr);
+    node3.setProperty (Ids::description, "Fade Animator", nullptr);
+    data.addChild (node3, -1, nullptr);
 
     homeComponent = new HomeComponent();
     editorComponent = new EditorComponent();
 
-    addAndMakeVisible (animatedStackComponent = new AnimatedStackComponent());
-    animatedStackComponent->setBounds (getBounds());
-    shutterAnimator = new ShutterAnimator(300, 0.5, 1.0);
-
-    shutterAnimator->setStackComponent (animatedStackComponent);
-    AnimatedStackHelpers::setStackAnimatorForComponent (shutterAnimator, editorComponent);
+    addAndMakeVisible (header = new StackHeaderComponent());
+    addAndMakeVisible (animatedStack = new AnimatedStackComponent());
     
-    animatedStackComponent->push (homeComponent, true);
-    animatedStackComponent->push (listBox = new AnimatedListBox (data,
+    shutterAnimator->setStackComponent (animatedStack);
+    //slideAnimator->setStackComponent (animatedStack);
+
+    AnimatedStackHelpers::setStackAnimatorForComponent(shutterAnimator, editorComponent);
+
+    animatedStack->setComponentID("Stack");
+
+    header->setComponentID("Header");
+    header->setTargetStack (animatedStack);
+    header->setInterceptsMouseClicks (false,true);
+
+    header->setBounds ("0,0,parent.width,40");
+    animatedStack->setBounds ("Header.left,Header.bottom,parent.width,parent.height");
+
+    //setColour (ListBox::backgroundColourId, Colours::black);
+
+    animatedStack->push (homeComponent, true);
+    animatedStack->push (listBox = new AnimatedListBox (data,
         // itemClicked callback function
         [this] (int row, ListBox* source, ValueTree node, const MouseEvent &e)
         {
@@ -49,33 +65,23 @@ MainContentComponent::MainContentComponent()
             DBG (rowPosition.toString());
             DBG (node.toXmlString());
             DBG ("row number clicked: " << row);
-            shutterAnimator->setFocusArea (rowPosition);
-            animatedStackComponent->push (editorComponent, false);
-            // animatedStackComponent->push (homeComponent = new HomeComponent(), false);
+            animatedStack->push (editorComponent, false);
         }
     ), true);
-    listBox->setBounds (getBounds());
-    
-    //animatedStackComponent->push (editorComponent, true);
-    // animatedStackComponent->push (homeComponent = new HomeComponent(), true, true, false);
+    listBox->setBounds (animatedStack->getBounds());
 }
 
 MainContentComponent::~MainContentComponent()
 {
+    listBox = nullptr;
     homeComponent = nullptr;
-    // editorComponent = nullptr;
-    // animatedStackComponent = nullptr;
-    // listBox = nullptr;
-    shutterAnimator = nullptr; // not needed?
+    editorComponent = nullptr;
+    animatedStack = nullptr;
 }
 
 void MainContentComponent::paint (Graphics& g)
 {
-    g.fillAll (Colour (0xff001F36));
-
-    g.setFont (Font (16.0f));
-    g.setColour (Colours::white);
-    g.drawText ("Hello World!", getLocalBounds(), Justification::centred, true);
+    g.fillAll (Colours::black);
 }
 
 void MainContentComponent::resized()

@@ -15,9 +15,6 @@ class DefaultStackAnimator : public StackAnimator
 {
 public:
     typedef juce::ReferenceCountedObjectPtr<DefaultStackAnimator> Ptr;
-
-    DefaultStackAnimator () {}
-    //virtual ~DefaultStackAnimator() {};
     
     void animateContentComponentAdded (juce::Component* newContent, int index) 
     {}
