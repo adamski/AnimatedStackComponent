@@ -68,7 +68,7 @@ MainContentComponent::MainContentComponent()
             animatedStack->push (editorComponent, false);
         }
     ), true);
-    listBox->setBounds (animatedStack->getBounds());
+    listBox->setBounds ("Stack.left,Stack.top,parent.width,parent.height");
 }
 
 MainContentComponent::~MainContentComponent()
