@@ -35,7 +35,7 @@ class AnimatedStackComponent	:	public StackComponent
         AnimatedStackComponent ();
         ~AnimatedStackComponent ();
 
-        void setDefaultStackAnimator(StackAnimator* defaultStackAnimator);
+        void setDefaultStackAnimator(const StackAnimator::Ptr & defaultStackAnimator);
 
         // // override StackComponent push so we can automatically switch animate on or off
 	// void push (juce::Component* contentComponent, bool shouldBeDeleted, bool autoFocus = true, bool animate = true);

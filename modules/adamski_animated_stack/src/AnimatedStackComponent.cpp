@@ -25,9 +25,11 @@ AnimatedStackComponent::AnimatedStackComponent ()
 }
 
 AnimatedStackComponent::~AnimatedStackComponent ()
-{}
+{
+    //stackAnimator = nullptr;
+}
 
-void AnimatedStackComponent::setDefaultStackAnimator(StackAnimator* defaultStackAnimator)
+void AnimatedStackComponent::setDefaultStackAnimator(const StackAnimator::Ptr & defaultStackAnimator)
 {
     stackAnimator = defaultStackAnimator;
 }
