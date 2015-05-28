@@ -9,37 +9,38 @@
 #include "MainComponent.h"
 
 
-
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
     setSize (600, 400);
-    ValueTree data (AnimatedListBoxIds::data);  
+     ValueTree data (AnimatedListBoxIds::data);  
     
-    ValueTree node1 (AnimatedListBoxIds::node);
-    node1.setProperty (AnimatedListBoxIds::title, "Slide", nullptr);
-    node1.setProperty (AnimatedListBoxIds::description, "Sliding Animator", nullptr);
-    data.addChild (node1, -1, nullptr);
+     ValueTree node1 (AnimatedListBoxIds::node);
+     node1.setProperty (AnimatedListBoxIds::title, "Slide", nullptr);
+     node1.setProperty (AnimatedListBoxIds::description, "Sliding Animator", nullptr);
+     data.addChild (node1, -1, nullptr);
+    
+     ValueTree node2 (AnimatedListBoxIds::node);
+     node2.setProperty (AnimatedListBoxIds::title, "Shutter", nullptr);
+     node2.setProperty (AnimatedListBoxIds::description, "Shutter Animator", nullptr);
+     data.addChild (node2, -1, nullptr);
+    
+     ValueTree node3 (AnimatedListBoxIds::node);
+     node3.setProperty (AnimatedListBoxIds::title, "Fade", nullptr);
+     node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+     data.addChild (node3, -1, nullptr);
 
-    ValueTree node2 (AnimatedListBoxIds::node);
-    node2.setProperty (AnimatedListBoxIds::title, "Shutter", nullptr);
-    node2.setProperty (AnimatedListBoxIds::description, "Shutter Animator", nullptr);
-    data.addChild (node2, -1, nullptr);
-
-    ValueTree node3 (AnimatedListBoxIds::node);
-    node3.setProperty (AnimatedListBoxIds::title, "Fade", nullptr);
-    node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
-    data.addChild (node3, -1, nullptr);
+    homeComponent = new HomeComponent();
+    editorComponent = new EditorComponent();
 
     addAndMakeVisible (animatedStackComponent = new AnimatedStackComponent());
     animatedStackComponent->setBounds (getBounds());
-    
-    editorComponent = new EditorComponent();
     shutterAnimator = new ShutterAnimator(300, 0.5, 1.0);
 
     shutterAnimator->setStackComponent (animatedStackComponent);
     AnimatedStackHelpers::setStackAnimatorForComponent (shutterAnimator, editorComponent);
-
+    
+    animatedStackComponent->push (homeComponent, true);
     animatedStackComponent->push (listBox = new AnimatedListBox (data,
         // itemClicked callback function
         [this] (int row, ListBox* source, ValueTree node, const MouseEvent &e)
@@ -50,15 +51,22 @@ MainContentComponent::MainContentComponent()
             DBG ("row number clicked: " << row);
             shutterAnimator->setFocusArea (rowPosition);
             animatedStackComponent->push (editorComponent, false);
+            // animatedStackComponent->push (homeComponent = new HomeComponent(), false);
         }
     ), true);
     listBox->setBounds (getBounds());
     
-    //animatedStackComponent->push (homeComponent = new HomeComponent(), true, true, false);
+    //animatedStackComponent->push (editorComponent, true);
+    // animatedStackComponent->push (homeComponent = new HomeComponent(), true, true, false);
 }
 
 MainContentComponent::~MainContentComponent()
 {
+    homeComponent = nullptr;
+    // editorComponent = nullptr;
+    // animatedStackComponent = nullptr;
+    // listBox = nullptr;
+    shutterAnimator = nullptr; // not needed?
 }
 
 void MainContentComponent::paint (Graphics& g)
@@ -75,4 +83,5 @@ void MainContentComponent::resized()
     // This is called when the MainContentComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
+    
 }

@@ -16,10 +16,14 @@ class ShutterAnimator : public StackAnimator, private juce::ChangeListener
 {
 public:
 
+    // typedef juce::ReferenceCountedObjectPtr<ShutterAnimator> Ptr;
+
     ShutterAnimator (juce::Rectangle<int> focusArea);
     ShutterAnimator (juce::Rectangle<int> focusArea, int slideDuration, float startSpeed, float endSpeed);
     ShutterAnimator ();
     ShutterAnimator (int slideDuration, float startSpeed, float endSpeed);
+
+    ~ShutterAnimator () { previousPanel.deleteAndZero(); } // move this to cpp file
     
     void setFocusArea (juce::Rectangle<int> newFocusArea);
 
