@@ -10,6 +10,7 @@
 
 
 StackAnimator::StackAnimator () {}
+StackAnimator::~StackAnimator () { stackComponent.deleteAndZero(); }
     
 void StackAnimator::animateContentComponentAdded (juce::Component* newContent, int index) {}
 void StackAnimator::animateContentComponentRemoved (juce::Component* contentRemoved, int index) {}

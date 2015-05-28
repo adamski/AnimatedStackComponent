@@ -26,7 +26,7 @@ AnimatedStackComponent::AnimatedStackComponent ()
 
 AnimatedStackComponent::~AnimatedStackComponent ()
 {
-    //stackAnimator = nullptr;
+    // stackAnimator->decReferenceCount();
 }
 
 void AnimatedStackComponent::setDefaultStackAnimator(const StackAnimator::Ptr & defaultStackAnimator)

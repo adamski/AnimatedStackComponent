@@ -23,7 +23,7 @@ public:
     ShutterAnimator ();
     ShutterAnimator (int slideDuration, float startSpeed, float endSpeed);
 
-    ~ShutterAnimator () { previousPanel.deleteAndZero(); } // move this to cpp file
+    ~ShutterAnimator ();
     
     void setFocusArea (juce::Rectangle<int> newFocusArea);
 
