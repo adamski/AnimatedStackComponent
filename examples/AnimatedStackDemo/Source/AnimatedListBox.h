@@ -106,7 +106,7 @@ public:
 
     void paint (Graphics& g)
     {
-        g.fillAll (Colours::black);
+        g.fillAll (Colours::transparentBlack);
     }
 
     void listBoxItemClicked (int row, const MouseEvent &e)

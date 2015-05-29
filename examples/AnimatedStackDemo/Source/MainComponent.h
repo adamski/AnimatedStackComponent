@@ -13,15 +13,7 @@
 #include "AnimatedListBox.h"
 #include "HomeComponent.h"
 #include "EditorComponent.h"
-
-namespace Ids 
-{
-    static const Identifier data ("Data");
-    static const Identifier node ("Node");
-    static const Identifier title ("Title");
-    static const Identifier description ("Description");
-    static const Identifier animator ("Animator");
-}
+#include "Identifiers.h"
 
 //==============================================================================
 /*
