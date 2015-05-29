@@ -59,7 +59,6 @@ void ShutterAnimator::setFocusArea (Rectangle<int> newFocusArea)
     focusArea = newFocusArea;
 }
 
-
 void ShutterAnimator::refreshLayout ()
 {
     for (int i = 0; i < stackComponent->getStackSize (); i++)
@@ -159,6 +158,8 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         {
             Desktop::getInstance().getAnimator().fadeIn (focusSnapshot, slideDuration);
         }
+
+        // TODO - check for largest distance and use that for both up and down animations
 
         if (isOpening) topBounds.setY (0-topBounds.getHeight());
         else topBounds.setY (0);
