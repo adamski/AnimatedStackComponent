@@ -8,7 +8,6 @@
 
 #include "MainComponent.h"
 
-
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
@@ -30,7 +29,6 @@ MainContentComponent::MainContentComponent()
      node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
      data.addChild (node3, -1, nullptr);
 
-    homeComponent = new HomeComponent();
     editorComponent = new EditorComponent();
 
     addAndMakeVisible (header = new StackHeaderComponent());
@@ -49,8 +47,7 @@ MainContentComponent::MainContentComponent()
     header->setBounds ("0,0,parent.width,40");
     animatedStack->setBounds ("Header.left,Header.bottom,parent.width,parent.height");
 
-    animatedStack->push (homeComponent, true);
-    animatedStack->push (listBox = new AnimatedListBox (data,
+    listBox = new AnimatedListBox (data,
         // itemClicked callback function
         [this] (int row, ListBox* source, ValueTree node, const MouseEvent &e)
         {
@@ -59,14 +56,18 @@ MainContentComponent::MainContentComponent()
             DBG (node.toXmlString());
             DBG ("row number clicked: " << row);
             shutterAnimator->setFocusArea (rowPosition);
+            editorComponent->setNode (node);
             animatedStack->push (editorComponent, false);
-            // animatedStack->push (homeComponent = new HomeComponent(), false);
         }
-    ), true);
+    );
+
     listBox->setBounds ("Stack.left,Stack.top,parent.width,parent.height");
-    
-    //animatedStack->push (editorComponent, true);
-    // animatedStack->push (homeComponent = new HomeComponent(), true, true, false);
+
+    animatedStack->push (homeComponent = new HomeComponent(
+        [this] ()
+        {
+            animatedStack->push (listBox, false);
+        }), true);
 }
 
 MainContentComponent::~MainContentComponent()

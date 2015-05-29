@@ -34,7 +34,8 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class EditorComponent  : public Component
+class EditorComponent  : public Component,
+                         public LabelListener
 {
 public:
     //==============================================================================
@@ -48,6 +49,7 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    void labelTextChanged (Label* labelThatHasChanged);
 
 
 

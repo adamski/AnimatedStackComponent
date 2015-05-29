@@ -22,6 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
+#include <functional>
 //[/Headers]
 
 
@@ -34,27 +35,30 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class HomeComponent  : public Component
+class HomeComponent  : public Component,
+                       public ButtonListener
 {
 public:
     //==============================================================================
-    HomeComponent ();
+    HomeComponent (std::function <void()> listButtonCallback);
     ~HomeComponent();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    typedef std::function <void()> ListButtonCallbackFunction;
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
-
-
+    void buttonClicked (Button* buttonThatWasClicked);
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    std::function <void()> listButtonCallback; 
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TextButton> listButton;
 
 
     //==============================================================================

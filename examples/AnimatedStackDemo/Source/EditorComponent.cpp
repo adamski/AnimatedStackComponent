@@ -21,6 +21,7 @@
 //[/Headers]
 
 #include "EditorComponent.h"
+#include "Identifiers.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
@@ -28,6 +29,7 @@
 
 //==============================================================================
 EditorComponent::EditorComponent ()
+    : node (node)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -48,13 +50,15 @@ EditorComponent::EditorComponent ()
                                                TRANS("label text")));
     titleLabel->setFont (Font (Font::getDefaultMonospacedFontName(), 19.80f, Font::plain));
     titleLabel->setJustificationType (Justification::centred);
-    titleLabel->setEditable (false, false, false);
+    titleLabel->setEditable (true, true, false);
     titleLabel->setColour (Label::textColourId, Colours::aliceblue);
     titleLabel->setColour (TextEditor::textColourId, Colours::black);
     titleLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    titleLabel->addListener (this);
 
 
     //[UserPreSize]
+
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -100,12 +104,29 @@ void EditorComponent::resized()
     //[/UserResized]
 }
 
+void EditorComponent::labelTextChanged (Label* labelThatHasChanged)
+{
+    //[UserlabelTextChanged_Pre]
+    //[/UserlabelTextChanged_Pre]
+
+    if (labelThatHasChanged == titleLabel)
+    {
+        //[UserLabelCode_titleLabel] -- add your label text handling code here..
+        //[/UserLabelCode_titleLabel]
+    }
+
+    //[UserlabelTextChanged_Post]
+    //[/UserlabelTextChanged_Post]
+}
+
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void EditorComponent::setNode (ValueTree & newNode)
 {
     node = newNode;
+    textEditor->setText (node.getProperty(Ids::description), NotificationType::dontSendNotification);
+    titleLabel->setText (node.getProperty(Ids::title), NotificationType::dontSendNotification);
 }
 //[/MiscUserCode]
 
@@ -120,19 +141,19 @@ void EditorComponent::setNode (ValueTree & newNode)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="EditorComponent" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
+                 parentClasses="public Component" constructorParams="" variableInitialisers="node (node)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ff000000"/>
   <TEXTEDITOR name="text editor" id="e2f8829b3b6d3b78" memberName="textEditor"
-              virtualName="" explicitFocusOrder="0" pos="10.152% 21.333% 79.188% 69.333%"
+              virtualName="" explicitFocusOrder="0" pos="10.156% 21.345% 79.219% 69.34%"
               textcol="fff0f8ff" bkgcol="cd000000" caretcol="fff0f8ff" initialText="[some description]"
               multiline="1" retKeyStartsLine="1" readonly="0" scrollbars="0"
               caret="1" popupmenu="0"/>
   <LABEL name="new label" id="4953d297d6c4b212" memberName="titleLabel"
-         virtualName="" explicitFocusOrder="0" pos="20.305% 7.111% 56.853% 8.889%"
+         virtualName="" explicitFocusOrder="0" pos="20.312% 7.115% 56.875% 8.926%"
          textCol="fff0f8ff" edTextCol="ff000000" edBkgCol="0" labelText="label text"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
          fontname="Default monospaced font" fontsize="19.800000000000000711"
          bold="0" italic="0" justification="36"/>
 </JUCER_COMPONENT>

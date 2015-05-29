@@ -27,10 +27,15 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-HomeComponent::HomeComponent ()
+HomeComponent::HomeComponent (std::function <void()> listButtonCallback) 
+    : listButtonCallback (listButtonCallback)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
+
+    addAndMakeVisible (listButton = new TextButton ("ListButton"));
+    listButton->setButtonText (TRANS("View ListBox"));
+    listButton->addListener (this);
 
 
     //[UserPreSize]
@@ -48,6 +53,7 @@ HomeComponent::~HomeComponent()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
+    listButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -65,7 +71,7 @@ void HomeComponent::paint (Graphics& g)
     g.setColour (Colours::aliceblue);
     g.setFont (Font (32.40f, Font::plain));
     g.drawText (TRANS("Home Screen"),
-                100, 92, 200, 30,
+                proportionOfWidth (0.2538f), proportionOfHeight (0.2044f), proportionOfWidth (0.5076f), proportionOfHeight (0.0667f),
                 Justification::centred, true);
 
     //[UserPaint] Add your own custom painting code here..
@@ -77,13 +83,31 @@ void HomeComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
+    listButton->setBounds (proportionOfWidth (0.3046f), proportionOfHeight (0.4089f), proportionOfWidth (0.4010f), proportionOfHeight (0.1067f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
+}
+
+void HomeComponent::buttonClicked (Button* buttonThatWasClicked)
+{
+    //[UserbuttonClicked_Pre]
+    //[/UserbuttonClicked_Pre]
+
+    if (buttonThatWasClicked == listButton)
+    {
+        //[UserButtonCode_listButton] -- add your button handler code here..
+        listButtonCallback(); 
+        //[/UserButtonCode_listButton]
+    }
+
+    //[UserbuttonClicked_Post]
+    //[/UserbuttonClicked_Post]
 }
 
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
 //[/MiscUserCode]
 
 
@@ -101,10 +125,14 @@ BEGIN_JUCER_METADATA
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="cd000000">
-    <TEXT pos="100 92 200 30" fill="solid: fff0f8ff" hasStroke="0" text="Home Screen"
-          fontname="Default font" fontsize="32.399999999999998579" bold="0"
-          italic="0" justification="36"/>
+    <TEXT pos="25.381% 20.444% 50.761% 6.667%" fill="solid: fff0f8ff" hasStroke="0"
+          text="Home Screen" fontname="Default font" fontsize="32.399999999999998579"
+          bold="0" italic="0" justification="36"/>
   </BACKGROUND>
+  <TEXTBUTTON name="ListButton" id="fad5fb2aa8a4b9d4" memberName="listButton"
+              virtualName="" explicitFocusOrder="0" pos="30.457% 40.889% 40.102% 10.667%"
+              buttonText="View ListBox" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
