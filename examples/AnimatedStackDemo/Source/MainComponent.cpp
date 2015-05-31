@@ -33,7 +33,7 @@ MainContentComponent::MainContentComponent()
 
     addAndMakeVisible (header = new StackHeaderComponent());
     addAndMakeVisible (animatedStack = new AnimatedStackComponent());
-    shutterAnimator = new ShutterAnimator(300, 0.5, 1.0);
+    shutterAnimator = new ShutterAnimator(600, 0.5, 1.0);
 
     shutterAnimator->setStackComponent (animatedStack);
     AnimatedStackHelpers::setStackAnimatorForComponent (shutterAnimator, editorComponent);
