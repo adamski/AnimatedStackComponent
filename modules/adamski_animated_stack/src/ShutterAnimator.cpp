@@ -143,13 +143,16 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         Rectangle<int> actualFocusArea (0, focusArea.getY(), bounds.getWidth(), focusArea.getHeight());
         focusSnapshot->setImage (panel->createComponentSnapshot (actualFocusArea));
 
+        // check for largest distance and use that for both up and down animations to keep same velocity
+        int largestHeight = (topBounds.getHeight() > bottomBounds.getHeight() ? topBounds.getHeight() : bottomBounds.getHeight());
+
         stackComponent->addAndMakeVisible (topSnapshot);
-        if (! isOpening) topBounds.setY (0-topBounds.getHeight());
+        if (! isOpening) topBounds.setY (0-largestHeight);
         topSnapshot->setBounds (topBounds);
 
         stackComponent->addAndMakeVisible (bottomSnapshot);
         bottomBounds.setTop (focusArea.getHeight());
-        if (! isOpening) bottomBounds.setY (bottomBounds.getHeight());
+        if (! isOpening) bottomBounds.setY (largestHeight);
         bottomSnapshot->setBounds (bottomBounds);
 
         stackComponent->addChildComponent (focusSnapshot);
@@ -164,13 +167,12 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
             Desktop::getInstance().getAnimator().fadeIn (focusSnapshot, slideDuration);
         }
 
-        // TODO - check for largest distance and use that for both up and down animations
 
-        if (isOpening) topBounds.setY (0-topBounds.getHeight());
+        if (isOpening) topBounds.setY (0-largestHeight);
         else topBounds.setY (0);
         Desktop::getInstance().getAnimator().animateComponent(topSnapshot, topBounds, 1.0f, slideDuration, true, startSpeed, endSpeed);
 
-        if (isOpening) bottomBounds.setY (bottomBounds.getHeight());
+        if (isOpening) bottomBounds.setY (largestHeight);
         else bottomBounds.setY (focusArea.getY() + focusArea.getHeight()); 
         DBG ("bottomBounds.getY: " << bottomBounds.getY());
         Desktop::getInstance().getAnimator().animateComponent(bottomSnapshot, bottomBounds, 1.0f, slideDuration, true, startSpeed, endSpeed);
@@ -232,8 +234,8 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
     {
         DBG ("topSnapshot.getY " << topSnapshot->getY());
         DBG ("bottomSnapshot.getY " << bottomSnapshot->getY() << ", focusSnapshot->getBottom() ==" << focusSnapshot->getBottom());
-        if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getY() >= 0)
-        && (! Desktop::getInstance().getAnimator().isAnimating (bottomSnapshot) && bottomSnapshot->getY() <= focusSnapshot->getBottom()))
+        if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getY() == 0)
+        && (! Desktop::getInstance().getAnimator().isAnimating (bottomSnapshot) && bottomSnapshot->getY() == focusSnapshot->getBottom()))
         {
             finishedAnimating = true;
         }
