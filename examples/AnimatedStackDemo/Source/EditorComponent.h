@@ -50,7 +50,6 @@ public:
     void paint (Graphics& g);
     void resized();
     void labelTextChanged (Label* labelThatHasChanged);
-    void focusLost (FocusChangeType cause);
 
 
 
