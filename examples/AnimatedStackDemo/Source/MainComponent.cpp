@@ -51,10 +51,13 @@ MainContentComponent::MainContentComponent()
         // itemClicked callback function
         [this] (int row, ListBox* source, ValueTree node, const MouseEvent &e)
         {
-            Rectangle<int> rowPosition = source->getRowPosition(row, false);
+            Rectangle<int> rowPosition = source->getRowPosition(row, true);
             DBG (rowPosition.toString());
             DBG (node.toXmlString());
             DBG ("row number clicked: " << row);
+            DBG ("position Y: " << rowPosition.getY());
+            //get actual row Y position
+            rowPosition.setY ((row) * source->getRowHeight());
             shutterAnimator->setFocusArea (rowPosition);
             editorComponent->setNode (node);
             animatedStack->push (editorComponent, false);

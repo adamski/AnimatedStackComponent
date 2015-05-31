@@ -84,6 +84,7 @@ EditorComponent::~EditorComponent()
 //==============================================================================
 void EditorComponent::paint (Graphics& g)
 {
+
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
@@ -112,7 +113,7 @@ void EditorComponent::labelTextChanged (Label* labelThatHasChanged)
     if (labelThatHasChanged == titleLabel)
     {
         //[UserLabelCode_titleLabel] -- add your label text handling code here..
-        node.setProperty (Ids::title, titleLabel->getText(), nullptr);
+        if (node.isValid()) node.setProperty (Ids::title, titleLabel->getText(), nullptr);
         //[/UserLabelCode_titleLabel]
     }
 
@@ -120,12 +121,12 @@ void EditorComponent::labelTextChanged (Label* labelThatHasChanged)
     //[/UserlabelTextChanged_Post]
 }
 
-void EditorComponent::focusLost (FocusChangeType cause)
-{
-    //[UserCode_focusLost] -- Add your code here...
-    if (node.isValid()) node.setProperty (Ids::description, textEditor->getText(), nullptr);
-    //[/UserCode_focusLost]
-}
+// void EditorComponent::focusLost (FocusChangeType cause)
+// {
+//     //[UserCode_focusLost] -- Add your code here...
+//     if (node.isValid()) node.setProperty (Ids::description, textEditor->getText(), nullptr);
+//     //[/UserCode_focusLost]
+// }
 
 
 

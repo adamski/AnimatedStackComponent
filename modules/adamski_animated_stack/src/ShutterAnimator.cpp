@@ -124,18 +124,20 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
     {
         // TODO: Tidy this code up - work out whats going with the focusArea adjustments 
 
-        Rectangle<int> topBounds (0, 0, bounds.getWidth(), focusArea.getY()+focusArea.getHeight());
+        int topHeight = (focusArea.getY() > 0 ? focusArea.getHeight() : 0); 
+        Rectangle<int> topBounds (0, 0, bounds.getWidth(), focusArea.getY());
+        DBG ("topBottom:" << focusArea.getY() + topHeight);
         topSnapshot = new ImageComponent("Top Snapshot");
         topSnapshot->setImage (panel->createComponentSnapshot (topBounds));
 
-        int bottomY = focusArea.getY()+(focusArea.getHeight()*2); 
+        int bottomY = focusArea.getY()+focusArea.getHeight(); 
         Rectangle<int> bottomBounds (0, bottomY, bounds.getWidth(), bounds.getHeight() );
         bottomSnapshot = new ImageComponent("Bottom Snapshot");
         bottomSnapshot->setImage (panel->createComponentSnapshot (bottomBounds));
 
         focusSnapshot = new ImageComponent("Focus Snapshot");
         DBG (focusArea.toString());
-        Rectangle<int> actualFocusArea (0, focusArea.getY()+focusArea.getHeight(), bounds.getWidth(), focusArea.getHeight());
+        Rectangle<int> actualFocusArea (0, focusArea.getY(), bounds.getWidth(), focusArea.getHeight());
         focusSnapshot->setImage (panel->createComponentSnapshot (actualFocusArea));
 
         stackComponent->addAndMakeVisible (topSnapshot);
@@ -166,7 +168,7 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         Desktop::getInstance().getAnimator().animateComponent(topSnapshot, topBounds, 1.0f, slideDuration, true, startSpeed, endSpeed);
 
         if (isOpening) bottomBounds.setY (bottomBounds.getHeight());
-        else bottomBounds.setY (focusArea.getY()-focusArea.getHeight());
+        else bottomBounds.setY (bottomBounds.getY() - bottomBounds.getHeight());
         Desktop::getInstance().getAnimator().animateComponent(bottomSnapshot, bottomBounds, 1.0f, slideDuration, true, startSpeed, endSpeed);
     }
 
@@ -192,7 +194,7 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         panel = stackComponent->getContentComponentAtIndex (oldIndex);
         if (panel != nullptr)
         {
-            panel->setVisible (true); 
+            panel->setVisible (true);  // try and take this out to fix bug on close
         }
     }
 }
@@ -229,7 +231,7 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
         {
             previousPanel->setVisible (true);
             int currentIndex = stackComponent->indexOfContentComponent(previousPanel.getComponent());
-            //DBG ("Index: " << currentIndex << ", size: " << stackComponent->getStackSize());
+            DBG ("Index: " << currentIndex << ", size: " << stackComponent->getStackSize());
 
             if (currentIndex < stackComponent->getStackSize()-1)
             {
