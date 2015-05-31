@@ -56,7 +56,7 @@ MainContentComponent::MainContentComponent()
             DBG (node.toXmlString());
             DBG ("row number clicked: " << row);
             DBG ("position Y: " << rowPosition.getY());
-            //get actual row Y position
+            //get actual row Y position     
             rowPosition.setY ((row) * source->getRowHeight());
             shutterAnimator->setFocusArea (rowPosition);
             editorComponent->setNode (node);

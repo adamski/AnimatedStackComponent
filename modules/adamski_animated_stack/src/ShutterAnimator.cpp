@@ -198,7 +198,6 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         panel = stackComponent->getContentComponentAtIndex (oldIndex);
         if (panel != nullptr)
         {
-            DBG ("set oldIndex visible");
             panel->setVisible (true);  // try and take this out to fix bug on close
         }
     }
@@ -221,21 +220,44 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
 {
     DBG ("topSnapshot->getHeight " << topSnapshot->getHeight());
 
-    if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getY() == 0 && ! isOpening )
-    || (! Desktop::getInstance().getAnimator().isAnimating (bottomSnapshot) && bottomSnapshot->getY() == stackComponent->getHeight()  && isOpening ))
+    if (isOpening)
     {
-        finishedAnimating = true;
+        if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getBottom() <= 0)
+        && (! Desktop::getInstance().getAnimator().isAnimating (bottomSnapshot) && bottomSnapshot->getY() >= stackComponent->getHeight()))
+        {
+            finishedAnimating = true;
+        }
+    }
+    else
+    {
+        DBG ("topSnapshot.getY " << topSnapshot->getY());
+        DBG ("bottomSnapshot.getY " << bottomSnapshot->getY() << ", focusSnapshot->getBottom() ==" << focusSnapshot->getBottom());
+        if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getY() >= 0)
+        && (! Desktop::getInstance().getAnimator().isAnimating (bottomSnapshot) && bottomSnapshot->getY() <= focusSnapshot->getBottom()))
+        {
+            finishedAnimating = true;
+        }
     }
 
-    if (previousPanel.getComponent() != nullptr && finishedAnimating)
+    if (finishedAnimating)
     {
+
+        DBG ("finishedAnimating: " << (isOpening ? "opening" : "closing"));
+        topSnapshot->setVisible (false);
+        bottomSnapshot->setVisible (false);
+        focusSnapshot->setVisible (false);
+
+        DBG ("removed snapshots");
+
         if (deletedPanel != nullptr)
         {
             deletedPanel->setVisible (false);
             deletedPanel = nullptr;
+            DBG ("remove deletedPanel");
         }
-        if (previousPanel != nullptr && !previousPanel->isShowing())
+        if (previousPanel.getComponent() != nullptr && !previousPanel->isShowing())
         {
+            DBG ("Show previousPanel");
             previousPanel->setVisible (true);
             int currentIndex = stackComponent->indexOfContentComponent(previousPanel.getComponent());
             DBG ("Index: " << currentIndex << ", size: " << stackComponent->getStackSize());
@@ -246,14 +268,11 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
                 stackComponent->getContentComponentAtIndex (currentIndex + 1)->setVisible (false);
             }
         }
-        topSnapshot->setVisible (false);
-        bottomSnapshot->setVisible (false);
-        focusSnapshot->setVisible (false);
         previousPanel = nullptr;
 
-        //DBG ("removed snapshots");
         finishedAnimating = false;
     }
+
 }
 
 /** 
