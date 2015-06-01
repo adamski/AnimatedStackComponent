@@ -2,8 +2,8 @@
     ==============================================================================
 
     AnimatedStackComponent.cpp
-    Created: 12 Mar 2011 12:13:09pm
-    Author:  Haydxn
+    Created: 14 May 2015 12:13:09pm
+    Author:  Adam Wilson
 
     ==============================================================================
 */
@@ -33,13 +33,6 @@ void AnimatedStackComponent::setDefaultStackAnimator(const StackAnimator::Ptr & 
 {
     stackAnimator = defaultStackAnimator;
 }
-
-// void AnimatedStackComponent::push (juce::Component* contentComponent, bool shouldBeDeleted, bool autoFocus, bool animate) 
-// {
-//     if (stackAnimator.get() == nullptr) animate = false;
-//     StackComponent::push (contentComponent, shouldBeDeleted, autoFocus, animate);
-// }
-
 
 void AnimatedStackComponent::handleContentComponentAdded (Component* newContent, int index, bool animate)
 {
@@ -72,9 +65,10 @@ void AnimatedStackComponent::handleStackFocusChange (Component* newFocusContent,
     }
     else 
     {
-        DBG ("newIndex: " << newIndex << ", oldIndex: " << oldIndex);
         if (newIndex < oldIndex)  // if we're going backwards
+        {
             newFocusContent = getContentComponentAtIndex(oldIndex); // set the newFocusContent to the previous component
+        }
         getStackAnimatorForComponent (newFocusContent)->animateStackFocusChange (newFocusContent, newIndex, oldIndex);
     }
 }
