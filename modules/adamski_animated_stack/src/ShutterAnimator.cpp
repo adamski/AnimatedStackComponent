@@ -133,13 +133,11 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         topSnapshot->setImage (panel->createComponentSnapshot (topBounds));
 
         int bottomY = focusArea.getY()+focusArea.getHeight(); 
-        DBG ("bottomY " << bottomY);
         Rectangle<int> bottomBounds (0, bottomY, bounds.getWidth(), bounds.getHeight() );
         bottomSnapshot = new ImageComponent("Bottom Snapshot");
         bottomSnapshot->setImage (panel->createComponentSnapshot (bottomBounds));
 
         focusSnapshot = new ImageComponent("Focus Snapshot");
-        DBG (focusArea.toString());
         Rectangle<int> actualFocusArea (0, focusArea.getY(), bounds.getWidth(), focusArea.getHeight());
         focusSnapshot->setImage (panel->createComponentSnapshot (actualFocusArea));
 
@@ -173,8 +171,8 @@ void ShutterAnimator::animateStackFocusChange (Component* newFocusContent, int n
         Desktop::getInstance().getAnimator().animateComponent(topSnapshot, topBounds, 1.0f, slideDuration, true, startSpeed, endSpeed);
 
         if (isOpening) bottomBounds.setY (largestHeight);
-        else bottomBounds.setY (focusArea.getY() + focusArea.getHeight()); 
-        DBG ("bottomBounds.getY: " << bottomBounds.getY());
+        // think below needs to be a multiple
+        else bottomBounds.setY (actualFocusArea.getBottom());
         Desktop::getInstance().getAnimator().animateComponent(bottomSnapshot, bottomBounds, 1.0f, slideDuration, true, startSpeed, endSpeed);
     }
 
@@ -220,8 +218,6 @@ void ShutterAnimator::setDuration (int durationMs, double newStartSpeed, double 
  */
 void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source) 
 {
-    DBG ("topSnapshot->getHeight " << topSnapshot->getHeight());
-
     if (isOpening)
     {
         if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getBottom() <= 0)
@@ -232,9 +228,7 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
     }
     else
     {
-        DBG ("topSnapshot.getY " << topSnapshot->getY());
-        DBG ("bottomSnapshot.getY " << bottomSnapshot->getY() << ", focusSnapshot->getBottom() ==" << focusSnapshot->getBottom());
-        if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getY() == 0)
+        if ((! Desktop::getInstance().getAnimator().isAnimating (topSnapshot) && topSnapshot->getY() == 0)  // think below needs to be a multiple
         && (! Desktop::getInstance().getAnimator().isAnimating (bottomSnapshot) && bottomSnapshot->getY() == focusSnapshot->getBottom()))
         {
             finishedAnimating = true;
@@ -244,25 +238,19 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
     if (finishedAnimating)
     {
 
-        DBG ("finishedAnimating: " << (isOpening ? "opening" : "closing"));
         topSnapshot->setVisible (false);
         bottomSnapshot->setVisible (false);
         focusSnapshot->setVisible (false);
-
-        DBG ("removed snapshots");
 
         if (deletedPanel != nullptr)
         {
             deletedPanel->setVisible (false);
             deletedPanel = nullptr;
-            DBG ("remove deletedPanel");
         }
         if (previousPanel.getComponent() != nullptr && !previousPanel->isShowing())
         {
-            DBG ("Show previousPanel");
             previousPanel->setVisible (true);
             int currentIndex = stackComponent->indexOfContentComponent(previousPanel.getComponent());
-            DBG ("Index: " << currentIndex << ", size: " << stackComponent->getStackSize());
 
             if (currentIndex < stackComponent->getStackSize()-1)
             {
@@ -271,7 +259,6 @@ void ShutterAnimator::changeListenerCallback (ChangeBroadcaster *source)
             }
         }
         previousPanel = nullptr;
-
         finishedAnimating = false;
     }
 

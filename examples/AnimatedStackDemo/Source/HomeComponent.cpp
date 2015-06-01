@@ -27,8 +27,8 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-HomeComponent::HomeComponent (std::function <void()> listButtonCallback) 
-    : listButtonCallback (listButtonCallback)
+HomeComponent::HomeComponent (std::function <void()> listButtonCallback, std::function <void(int)> comboBoxCallback)
+    : listButtonCallback (listButtonCallback), comboBoxCallback (comboBoxCallback)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -37,6 +37,15 @@ HomeComponent::HomeComponent (std::function <void()> listButtonCallback)
     listButton->setButtonText (TRANS("View ListBox"));
     listButton->addListener (this);
 
+    addAndMakeVisible (comboBox = new ComboBox ("new combo box"));
+    comboBox->setEditableText (false);
+    comboBox->setJustificationType (Justification::centredLeft);
+    comboBox->setTextWhenNothingSelected (TRANS("Please select"));
+    comboBox->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    comboBox->addItem (TRANS("Shutter"), 1);
+    comboBox->addItem (TRANS("Slider"), 2);
+    comboBox->addItem (TRANS("Default (none)"), 3);
+    comboBox->addListener (this);
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -45,6 +54,7 @@ HomeComponent::HomeComponent (std::function <void()> listButtonCallback)
 
 
     //[Constructor] You can add your own custom stuff here..
+    comboBox->setSelectedItemIndex (0, NotificationType::dontSendNotification);
     //[/Constructor]
 }
 
@@ -54,6 +64,7 @@ HomeComponent::~HomeComponent()
     //[/Destructor_pre]
 
     listButton = nullptr;
+    comboBox = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -84,6 +95,7 @@ void HomeComponent::resized()
     //[/UserPreResize]
 
     listButton->setBounds (proportionOfWidth (0.3046f), proportionOfHeight (0.4089f), proportionOfWidth (0.4010f), proportionOfHeight (0.1067f));
+    comboBox->setBounds (proportionOfWidth (0.3046f), proportionOfHeight (0.6044f), proportionOfWidth (0.4061f), proportionOfHeight (0.0533f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -96,12 +108,29 @@ void HomeComponent::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == listButton)
     {
         //[UserButtonCode_listButton] -- add your button handler code here..
-        listButtonCallback(); 
+        listButtonCallback();
         //[/UserButtonCode_listButton]
     }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
+}
+
+void HomeComponent::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
+{
+    //[UsercomboBoxChanged_Pre]
+    //[/UsercomboBoxChanged_Pre]
+
+    if (comboBoxThatHasChanged == comboBox)
+    {
+        //[UserComboBoxCode_comboBox] -- add your combo box handling code here..
+        int selectedIndex = comboBox->getSelectedItemIndex();
+        comboBoxCallback (selectedIndex);
+        //[/UserComboBoxCode_comboBox]
+    }
+
+    //[UsercomboBoxChanged_Post]
+    //[/UsercomboBoxChanged_Post]
 }
 
 
@@ -121,7 +150,8 @@ void HomeComponent::buttonClicked (Button* buttonThatWasClicked)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="HomeComponent" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
+                 parentClasses="public Component" constructorParams="std::function &lt;void()&gt; listButtonCallback, std::function &lt;void(int)&gt; comboBoxCallback"
+                 variableInitialisers="listButtonCallback (listButtonCallback), comboBoxCallback (comboBoxCallback)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="cd000000">
@@ -133,6 +163,10 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="30.457% 40.889% 40.102% 10.667%"
               buttonText="View ListBox" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
+  <COMBOBOX name="new combo box" id="281b9558752b5ef3" memberName="comboBox"
+            virtualName="" explicitFocusOrder="0" pos="30.457% 60.444% 40.609% 5.333%"
+            editable="0" layout="33" items="Shutter&#10;Slider&#10;Default (none)"
+            textWhenNonSelected="Please select" textWhenNoItems="(no choices)"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

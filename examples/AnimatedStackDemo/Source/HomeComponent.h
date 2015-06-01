@@ -36,11 +36,12 @@
                                                                     //[/Comments]
 */
 class HomeComponent  : public Component,
-                       public ButtonListener
+                       public ButtonListener,
+                       public ComboBoxListener
 {
 public:
     //==============================================================================
-    HomeComponent (std::function <void()> listButtonCallback);
+    HomeComponent (std::function <void()> listButtonCallback, std::function <void(int)> comboBoxCallback);
     ~HomeComponent();
 
     //==============================================================================
@@ -51,14 +52,19 @@ public:
     void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
+
+
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    std::function <void()> listButtonCallback; 
+    std::function <void()> listButtonCallback;
+    std::function <void(int)> comboBoxCallback;
     //[/UserVariables]
 
     //==============================================================================
     ScopedPointer<TextButton> listButton;
+    ScopedPointer<ComboBox> comboBox;
 
 
     //==============================================================================

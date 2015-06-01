@@ -23,6 +23,11 @@ namespace AnimatedStackHelpers
         stackAnimator->incReferenceCount(); // this prevents a crash when using 'Back' button on this component
     }
 
+    static StackAnimator::Ptr getStackAnimatorForComponent (juce::Component *component)
+    {
+        juce::var* animatorVar = component->getProperties().getVarPointer (AnimatedStackHelpers::stackAnimatorId);
+        return dynamic_cast<StackAnimator*> (animatorVar->getObject());
+    }
 };
 
 class AnimatedStackComponent	:	public StackComponent
@@ -36,9 +41,6 @@ class AnimatedStackComponent	:	public StackComponent
         ~AnimatedStackComponent ();
 
         void setDefaultStackAnimator(const StackAnimator::Ptr & defaultStackAnimator);
-
-        // // override StackComponent push so we can automatically switch animate on or off
-	// void push (juce::Component* contentComponent, bool shouldBeDeleted, bool autoFocus = true, bool animate = true);
 
     protected:
 
