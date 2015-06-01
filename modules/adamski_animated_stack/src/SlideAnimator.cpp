@@ -3,7 +3,7 @@
 
     SlideAnimator.cpp
     Created: 4 May 2015 10:40:25pm
-    Author:  Adam Elemental
+    Author:  Adam Wilson
 
   ==============================================================================
 */

@@ -3,7 +3,7 @@
 
     AnimatedStackComponent.h
     Created: 14 May 2015 12:13:09pm
-    Author:  Adam Elemental
+    Author:  Adam Wilson
 
   ==============================================================================
 */

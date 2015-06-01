@@ -3,7 +3,7 @@
 
     AnimatedListBox.h
     Created: 13 Apr 2015 11:26:11pm
-    Author:  Adam Elemental
+    Author:  Adam Wilson
 
   ==============================================================================
 */
