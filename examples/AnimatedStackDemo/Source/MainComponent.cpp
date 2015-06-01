@@ -12,31 +12,49 @@
 MainContentComponent::MainContentComponent()
 {
     setSize (600, 400);
-     ValueTree data (AnimatedListBoxIds::data);  
-    
-     ValueTree node1 (AnimatedListBoxIds::node);
-     node1.setProperty (AnimatedListBoxIds::title, "Slide", nullptr);
-     node1.setProperty (AnimatedListBoxIds::description, "Sliding Animator", nullptr);
-     data.addChild (node1, -1, nullptr);
-    
-     ValueTree node2 (AnimatedListBoxIds::node);
-     node2.setProperty (AnimatedListBoxIds::title, "Shutter", nullptr);
-     node2.setProperty (AnimatedListBoxIds::description, "Shutter Animator", nullptr);
-     data.addChild (node2, -1, nullptr);
-    
-     ValueTree node3 (AnimatedListBoxIds::node);
-     node3.setProperty (AnimatedListBoxIds::title, "Fade", nullptr);
-     node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
-     data.addChild (node3, -1, nullptr);
+    setColour (ListBox::backgroundColourId, Colours::transparentWhite);
+    ValueTree data (AnimatedListBoxIds::data);  
+
+    ValueTree node1 (AnimatedListBoxIds::node);
+    node1.setProperty (AnimatedListBoxIds::title, "Item 1", nullptr);
+    node1.setProperty (AnimatedListBoxIds::description, "Sliding Animator", nullptr);
+    data.addChild (node1, -1, nullptr);
+
+    ValueTree node2 (AnimatedListBoxIds::node);
+    node2.setProperty (AnimatedListBoxIds::title, "Item 2", nullptr);
+    node2.setProperty (AnimatedListBoxIds::description, "Shutter Animator", nullptr);
+    data.addChild (node2, -1, nullptr);
+
+    ValueTree node3 (AnimatedListBoxIds::node);
+    node3.setProperty (AnimatedListBoxIds::title, "Item 3", nullptr);
+    node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+    data.addChild (node3, -1, nullptr);
+
+    ValueTree node4 (AnimatedListBoxIds::node);
+    node4.setProperty (AnimatedListBoxIds::title, "Item 4", nullptr);
+    node4.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+    data.addChild (node4, -1, nullptr);
+
+    ValueTree node5 (AnimatedListBoxIds::node);
+    node5.setProperty (AnimatedListBoxIds::title, "Item 5", nullptr);
+    node5.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+    data.addChild (node5, -1, nullptr);
 
     editorComponent = new EditorComponent();
 
     addAndMakeVisible (header = new StackHeaderComponent());
     addAndMakeVisible (animatedStack = new AnimatedStackComponent());
-    shutterAnimator = new ShutterAnimator(600, 0.5, 1.0);
 
-    shutterAnimator->setStackComponent (animatedStack);
-    AnimatedStackHelpers::setStackAnimatorForComponent (shutterAnimator, editorComponent);
+    stackAnimators.add (new ShutterAnimator(600, 0.5, 1.0));
+    stackAnimators.add (new SlideAnimator(600, 0.5, 1.0));
+    stackAnimators.add (new DefaultStackAnimator());
+
+    for (auto animator : stackAnimators)
+    {
+        animator->setStackComponent (animatedStack);
+    }
+
+    AnimatedStackHelpers::setStackAnimatorForComponent (stackAnimators.getFirst(), editorComponent);
 
     animatedStack->setComponentID("Stack");
 
@@ -58,7 +76,8 @@ MainContentComponent::MainContentComponent()
             DBG ("position Y: " << rowPosition.getY());
             //get actual row Y position     
             rowPosition.setY ((row) * source->getRowHeight());
-            shutterAnimator->setFocusArea (rowPosition);
+            StackAnimator::Ptr stackAnimator = AnimatedStackHelpers::getStackAnimatorForComponent (editorComponent);
+            stackAnimator->setFocusArea (rowPosition);
             editorComponent->setNode (node);
             animatedStack->push (editorComponent, false);
         }
@@ -70,7 +89,12 @@ MainContentComponent::MainContentComponent()
         [this] ()
         {
             animatedStack->push (listBox, false);
-        }), true);
+        },
+        [this] (int selectedIndex)
+        {
+            AnimatedStackHelpers::setStackAnimatorForComponent (stackAnimators [selectedIndex], editorComponent);
+        }
+        ), true);
 }
 
 MainContentComponent::~MainContentComponent()

@@ -84,9 +84,7 @@ StackAnimator::Ptr AnimatedStackComponent::getStackAnimatorForComponent (Compone
     NamedValueSet & properties = component->getProperties();
     if (properties.contains (AnimatedStackHelpers::stackAnimatorId)) // also check for valid stackAnimator object
     {
-        var *animator = properties.getVarPointer (AnimatedStackHelpers::stackAnimatorId); 
-        StackAnimator::Ptr stackAnimator = dynamic_cast <StackAnimator *> (animator->getObject());
-        return stackAnimator;
+        return AnimatedStackHelpers::getStackAnimatorForComponent (component);
     }
     else
     {

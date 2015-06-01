@@ -51,35 +51,6 @@ public:
     Component* refreshComponentForRow(int rowNumber, bool isRowSelected, Component* existingComponentToUpdate)
     {
         return nullptr;
-        
-        // NoteRatioComponent *row = dynamic_cast<NoteRatioComponent*>(existingComponentToUpdate);
-        //
-        // DBG ( "getNumRows: " << getNumRows() );
-        // if(rowNumber < getNumRows())
-        // {
-        //     if(!row)
-        //     {
-        //         DBG ("Creating new NoteRatioComponent:");
-        //         row = new NoteRatioComponent (getValueTreeForRow (rowNumber), sharedObjects);
-        //     }
-        //
-        //     else // Update all properties of your custom component with the data for the current row
-        //     {
-        //         DBG ("Updating NoteRatioComponent:");
-        //         row->setNoteRatio (getValueTreeForRow (rowNumber));
-        //     }
-        //     // DBG (getValueTreeForRow (rowNumber).toXmlString());
-        //
-        // }
-        // else
-        // {
-        //     // Nothing to display, free the custom component
-        //     delete existingComponentToUpdate;
-        //     row = nullptr;
-        // }
-        //
-        //
-        // return row;
     }
 
     void paintListBoxItem (int rowNumber, Graphics &g, int width, int height, bool rowIsSelected) 

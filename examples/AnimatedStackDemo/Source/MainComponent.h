@@ -36,8 +36,7 @@ private:
     ScopedPointer<HomeComponent> homeComponent;
     ScopedPointer<EditorComponent> editorComponent;
     ScopedPointer<StackHeaderComponent> header;
-    ShutterAnimator::Ptr shutterAnimator;
-    SlideAnimator::Ptr slideAnimator;
+    ReferenceCountedArray<StackAnimator> stackAnimators;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
