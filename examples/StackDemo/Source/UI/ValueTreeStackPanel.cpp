@@ -62,9 +62,9 @@ void ValueTreeStackPanel::paint (Graphics& g)
 	g.fillAll (Colours::grey);
 }
 
-AnimatedStackComponent* ValueTreeStackPanel::getStack ()
+StackComponent* ValueTreeStackPanel::getStack ()
 {
-	return static_cast<AnimatedStackComponent*> (StackComponent::findForContent (this));
+	return static_cast<StackComponent*> (StackComponent::findForContent (this));
 }
 
 void ValueTreeStackPanel::pushAfter (Component* newComponent, bool autoFocus, bool animate)
@@ -89,13 +89,6 @@ void ValueTreeStackPanel::pop ()
 void ValueTreeStackPanel::valueTreeListBoxItemDoubleClicked (ValueTreeListBox* source, const MouseEvent& e, int index, const ValueTree& itemNode)
 {
     ValueTreeStackPanel* nextPanel = new ValueTreeStackPanel (itemNode);
-    if (index == 1)
-    {
-        Rectangle<int> rowPosition = source->getListBox().getRowPosition(index, false);
-        ShutterAnimator::Ptr shutterAnimator = new ShutterAnimator(rowPosition, 300, 0.5, 1.0);
-        shutterAnimator->setStackComponent(getStack());
-        AnimatedStackHelpers::setStackAnimatorForComponent(shutterAnimator, nextPanel);
-    }
     pushAfter (nextPanel,true,true);
 }
 

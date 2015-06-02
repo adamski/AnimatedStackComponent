@@ -921,6 +921,7 @@
     <ClInclude Include="..\..\Source\UI\ValueTreeStackPanel.h"/>
     <ClInclude Include="..\..\Source\MainWindow.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\AnimatedStackComponent.h"/>
+    <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\DefaultStackAnimator.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\ShutterAnimator.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\SlideAnimator.h"/>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\StackAnimator.h"/>

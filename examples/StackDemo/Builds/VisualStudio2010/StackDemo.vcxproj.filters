@@ -1080,6 +1080,9 @@
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\AnimatedStackComponent.h">
       <Filter>Juce Modules\adamski_animated_stack\src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\DefaultStackAnimator.h">
+      <Filter>Juce Modules\adamski_animated_stack\src</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\modules\adamski_animated_stack\src\ShutterAnimator.h">
       <Filter>Juce Modules\adamski_animated_stack\src</Filter>
     </ClInclude>

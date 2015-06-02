@@ -28,7 +28,8 @@ void StackComponent::push (Component* contentComponent, bool shouldBeDeleted, bo
     if (contentComponent)
     {
         jassert (contentComponent != nullptr);
-        jassert (!contentComps.contains(contentComponent)); // !!!
+        // The component you are pushing already exists in the stack
+        jassert (!contentComps.contains(contentComponent));
 
         int newIndex = contentComps.size ();
         contentComps.add (contentComponent);
@@ -72,8 +73,6 @@ void StackComponent::pop (int numberToRemove, bool autoFocus, bool animate)
 
         if (contentToRemove != nullptr) // added to prevent bad access error on NULL contentToRemove
             handleContentComponentRemoved (contentToRemove, removalIndex, animate);
-        else
-            DBG ("contentToRemove was NULL");
         
         --numberToRemove;
     }

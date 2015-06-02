@@ -84,14 +84,14 @@ public:
 	void refresh ();
 
 	// Implementing ValueTree::Listener
-	void valueTreePropertyChanged (	ValueTree& treeWhosePropertyHasChanged, const Identifier& prop);
-	void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded);
-    void valueTreeChildRemoved (ValueTree& parentTree,
-                                ValueTree& childWhichHasBeenRemoved,
-                                int indexFromWhichChildWasRemoved);
-    void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved,
-                                     int oldIndex, int newIndex);
-    void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged);
+        void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& prop);
+        void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded);
+        void valueTreeChildRemoved (ValueTree& parentTree,
+                                    ValueTree& childWhichHasBeenRemoved,
+                                    int indexFromWhichChildWasRemoved);
+        void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved,
+                                         int oldIndex, int newIndex);
+        void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged);
 
 	// Implementing ListBoxModel
 	void paintListBoxItem (int rowNumber, Graphics& g, int w, int h, bool selected);

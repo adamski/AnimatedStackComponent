@@ -12,11 +12,9 @@
 #define SHUTTERANIMATOR_H_INCLUDED
 
 
-class ShutterAnimator : public StackAnimator, private juce::ChangeListener
+class ShutterAnimator : public StackAnimator, public juce::ChangeListener
 {
 public:
-
-    // typedef juce::ReferenceCountedObjectPtr<ShutterAnimator> Ptr;
 
     ShutterAnimator (juce::Rectangle<int> focusArea);
     ShutterAnimator (juce::Rectangle<int> focusArea, int slideDuration, float startSpeed, float endSpeed);

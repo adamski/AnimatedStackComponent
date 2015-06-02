@@ -14,9 +14,7 @@ ShutterAnimator::ShutterAnimator (Rectangle<int> focusArea)
         slideDuration (150),
         startSpeed (1.0),
         endSpeed (1.0)
-{
-    Desktop::getInstance().getAnimator().addChangeListener (this);
-}
+{}
 
 ShutterAnimator::ShutterAnimator (Rectangle<int> focusArea, int slideDuration, float startSpeed, float endSpeed)
     :   StackAnimator(),
@@ -24,27 +22,21 @@ ShutterAnimator::ShutterAnimator (Rectangle<int> focusArea, int slideDuration, f
         slideDuration (slideDuration),
         startSpeed (startSpeed),
         endSpeed (endSpeed)
-{
-    Desktop::getInstance().getAnimator().addChangeListener (this);
-}
+{}
 
 ShutterAnimator::ShutterAnimator () 
     :   StackAnimator(),
         slideDuration (150),
         startSpeed (1.0),
         endSpeed (1.0)
-{
-    Desktop::getInstance().getAnimator().addChangeListener (this);
-}
+{}
 
 ShutterAnimator::ShutterAnimator (int slideDuration, float startSpeed, float endSpeed)
     :   StackAnimator(),
         slideDuration (slideDuration),
         startSpeed (startSpeed),
         endSpeed (endSpeed)
-{
-    Desktop::getInstance().getAnimator().addChangeListener (this);
-}
+{}
 
 ShutterAnimator::~ShutterAnimator ()
 {
@@ -54,6 +46,7 @@ ShutterAnimator::~ShutterAnimator ()
     deletedPanel = nullptr;
     previousPanel.deleteAndZero(); 
 }
+
 void ShutterAnimator::setFocusArea (Rectangle<int> newFocusArea)
 {
     focusArea = newFocusArea;

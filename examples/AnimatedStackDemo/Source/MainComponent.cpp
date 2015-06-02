@@ -17,27 +17,27 @@ MainContentComponent::MainContentComponent()
 
     ValueTree node1 (AnimatedListBoxIds::node);
     node1.setProperty (AnimatedListBoxIds::title, "Item 1", nullptr);
-    node1.setProperty (AnimatedListBoxIds::description, "Sliding Animator", nullptr);
+    node1.setProperty (AnimatedListBoxIds::description, "Aliquam mollis ultrices eros, non pretium lectus consectetur placerat. Fusce sollicitudin, orci nec volutpat mattis, ipsum elit vestibulum turpis, ac feugiat dolor sapien et nibh. Vestibulum faucibus, sapien id vehicula vehicula, elit urna rhoncus nisl, eget congue turpis est id sem.", nullptr);
     data.addChild (node1, -1, nullptr);
 
     ValueTree node2 (AnimatedListBoxIds::node);
     node2.setProperty (AnimatedListBoxIds::title, "Item 2", nullptr);
-    node2.setProperty (AnimatedListBoxIds::description, "Shutter Animator", nullptr);
+    node2.setProperty (AnimatedListBoxIds::description, "Donec placerat sollicitudin orci, at auctor arcu luctus vitae. Sed ut nibh viverra, elementum odio dictum, egestas velit.", nullptr);
     data.addChild (node2, -1, nullptr);
 
     ValueTree node3 (AnimatedListBoxIds::node);
     node3.setProperty (AnimatedListBoxIds::title, "Item 3", nullptr);
-    node3.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+    node3.setProperty (AnimatedListBoxIds::description, "Curabitur scelerisque euismod mauris, nec aliquet elit finibus viverra. Morbi vel facilisis nunc. Morbi elit nisi, gravida eget interdum sed, vestibulum vel sapien.", nullptr);
     data.addChild (node3, -1, nullptr);
 
     ValueTree node4 (AnimatedListBoxIds::node);
     node4.setProperty (AnimatedListBoxIds::title, "Item 4", nullptr);
-    node4.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+    node4.setProperty (AnimatedListBoxIds::description, "Integer vitae ultrices dolor, sit amet iaculis sapien. ", nullptr);
     data.addChild (node4, -1, nullptr);
 
     ValueTree node5 (AnimatedListBoxIds::node);
     node5.setProperty (AnimatedListBoxIds::title, "Item 5", nullptr);
-    node5.setProperty (AnimatedListBoxIds::description, "Fade Animator", nullptr);
+    node5.setProperty (AnimatedListBoxIds::description, "Aenean molestie leo a vulputate tincidunt. Sed semper urna vitae urna aliquet vehicula.", nullptr);
     data.addChild (node5, -1, nullptr);
 
     editorComponent = new EditorComponent();
@@ -70,12 +70,6 @@ MainContentComponent::MainContentComponent()
         [this] (int row, ListBox* source, ValueTree node, const MouseEvent &e)
         {
             Rectangle<int> rowPosition = source->getRowPosition(row, true);
-            DBG (rowPosition.toString());
-            DBG (node.toXmlString());
-            DBG ("row number clicked: " << row);
-            DBG ("position Y: " << rowPosition.getY());
-            //get actual row Y position     
-            rowPosition.setY ((row) * source->getRowHeight());
             StackAnimator::Ptr stackAnimator = AnimatedStackHelpers::getStackAnimatorForComponent (editorComponent);
             stackAnimator->setFocusArea (rowPosition);
             editorComponent->setNode (node);

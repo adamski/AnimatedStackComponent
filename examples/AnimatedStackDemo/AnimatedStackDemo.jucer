@@ -12,10 +12,6 @@
       <FILE id="pbo0lQ" name="HomeComponent.cpp" compile="1" resource="0"
             file="Source/HomeComponent.cpp"/>
       <FILE id="d0r3QL" name="HomeComponent.h" compile="0" resource="0" file="Source/HomeComponent.h"/>
-      <FILE id="VlMiiE" name="AnimatedStackPanel.cpp" compile="1" resource="0"
-            file="Source/AnimatedStackPanel.cpp"/>
-      <FILE id="RBTe2O" name="AnimatedStackPanel.h" compile="0" resource="0"
-            file="Source/AnimatedStackPanel.h"/>
       <FILE id="rki9gP" name="AnimatedListBox.h" compile="0" resource="0"
             file="Source/AnimatedListBox.h"/>
       <FILE id="IACKGD" name="MainComponent.cpp" compile="1" resource="0"

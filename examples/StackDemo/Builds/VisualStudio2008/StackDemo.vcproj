@@ -162,6 +162,7 @@
             </FileConfiguration>
           </File>
           <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\AnimatedStackComponent.h"/>
+          <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\DefaultStackAnimator.h"/>
           <File RelativePath="..\..\..\..\modules\adamski_animated_stack\src\ShutterAnimator.cpp">
             <FileConfiguration Name="Debug|Win32"
                                ExcludedFromBuild="true">

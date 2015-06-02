@@ -17,20 +17,40 @@ namespace AnimatedStackHelpers
 {
     static const juce::Identifier stackAnimatorId ("StackAnimator");
 
-    static void setStackAnimatorForComponent (StackAnimator::Ptr stackAnimator, juce::Component *component)
+    static StackAnimator* getStackAnimatorForComponent (juce::Component* component)
     {
-        component->getProperties().set (AnimatedStackHelpers::stackAnimatorId, juce::var(stackAnimator));
-        stackAnimator->incReferenceCount(); // this prevents a crash when using 'Back' button on this component
+        if (component->getProperties().contains (AnimatedStackHelpers::stackAnimatorId)) 
+        {
+            juce::var* animatorVar = component->getProperties().getVarPointer (AnimatedStackHelpers::stackAnimatorId);
+            return dynamic_cast<StackAnimator*> (animatorVar->getObject());
+        }
+        else
+        {
+            return nullptr;
+        }
     }
-
-    static StackAnimator::Ptr getStackAnimatorForComponent (juce::Component *component)
+    
+    static void setStackAnimatorForComponent (StackAnimator* stackAnimator, juce::Component* component)
     {
-        juce::var* animatorVar = component->getProperties().getVarPointer (AnimatedStackHelpers::stackAnimatorId);
-        return dynamic_cast<StackAnimator*> (animatorVar->getObject());
+        // Clear ChangeListener for current StackAnimator
+        if (juce::ChangeListener* changeListeningStackAnimator = dynamic_cast<juce::ChangeListener*> (AnimatedStackHelpers::getStackAnimatorForComponent (component)))
+        {
+            juce::Desktop::getInstance().getAnimator().removeChangeListener (changeListeningStackAnimator);
+        }
+
+        // Set new StackAnimator
+        component->getProperties().set (AnimatedStackHelpers::stackAnimatorId, juce::var(stackAnimator));
+
+        // Add ChangeListener to ComponentAnimator if needed
+        if (juce::ChangeListener* changeListeningStackAnimator = dynamic_cast<juce::ChangeListener*> (stackAnimator))
+        {
+            juce::Desktop::getInstance().getAnimator().addChangeListener (changeListeningStackAnimator);
+        }
+        // stackAnimator->incReferenceCount(); // this prevents a crash when using 'Back' button on this component
     }
 };
 
-class AnimatedStackComponent	:	public StackComponent
+class AnimatedStackComponent : public StackComponent
 {
     friend class DefaultStackAnimator;
 
