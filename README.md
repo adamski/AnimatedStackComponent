@@ -1,5 +1,5 @@
 # AnimatedStackComponent
-### Extension of @haydxn's StackComponent as JUCE modules
+##### Extension of @haydxn's StackComponent as JUCE modules
 
 Incorporates additional classes to allow a more generalised way of applying animations to a StackComponent.
 
@@ -10,6 +10,8 @@ Animations are defined in classes derived from StackAnimator.
 AnimatedStackComponent inherits from StackComponent. It defines a couple of helper functions to attach and remove StackAnimator instances to Components.
 
 A StackAnimator is attached to a Component as a property of the component. 
+
+The code is split into two modules - the original StackComponent core code, with a few tweaks for newer JUCE versions, and AnimatedStackComponent and the animation classes. 
 
 Please have a look at the demos for examples. More detailed documentation to follow. 
 
